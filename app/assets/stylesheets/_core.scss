@@ -1,3 +1,11 @@
+/* Variables */
+
+$grey: #e4e9ea;
+$teal: #01cdb9;
+
+
+/* Mixins */
+
 /* Handles vendor prefixes. */
 @mixin v($prop, $args) {
   -webkit-#{$prop}: $args;
@@ -48,4 +56,37 @@
   @media (max-width: 700px) {
     @content;
   }
+}
+
+
+/* Animations */
+
+@keyframes shiftUp {
+  0%   { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@-moz-keyframes shiftUp {
+  0%   { opacity: 0; -moz-transform: translateY(50px); }
+  100% { opacity: 1; -moz-transform: translateY(0px); }
+}
+
+@-webkit-keyframes shiftUp {
+  0%   { opacity: 0; -webkit-transform: translateY(50px); }
+  100% { opacity: 1; -webkit-transform: translateY(0px); }
+}
+
+@keyframes shiftDown {
+  0%   { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@-moz-keyframes shiftDown {
+  0%   { opacity: 0; -moz-transform: translateY(-50px); }
+  100% { opacity: 1; -moz-transform: translateY(0px); }
+}
+
+@-webkit-keyframes shiftDown {
+  0%   { opacity: 0; -webkit-transform: translateY(-50px); }
+  100% { opacity: 1; -webkit-transform: translateY(0px); }
 }

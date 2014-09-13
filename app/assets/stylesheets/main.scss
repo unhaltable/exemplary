@@ -1,7 +1,4 @@
-@import 'mixins';
-
-$grey: #e4e9ea;
-$teal: #01cdb9;
+@import 'core';
 
 
 /* Core styling */
@@ -158,6 +155,7 @@ input[type="submit"] {
 }
 
   #landing-header-slogan {
+    @include v(animation, shiftDown .5s .1s ease-out);
     display: table-cell;
     font-size: 2em;
     font-weight: 400;
@@ -197,14 +195,17 @@ input[type="submit"] {
   }
 
     #step-1 {
+      @include v(animation, shiftUp .5s .2s ease-out);
       background-image: url("step_upload.png");
     }
 
     #step-2 {
+      @include v(animation, shiftUp .5s .3s ease-out);
       background-image: url("step_edit.png");
     }
 
     #step-3 {
+      @include v(animation, shiftUp .5s .4s ease-out);
       background-image: url("step_vote.png");
     }
 
