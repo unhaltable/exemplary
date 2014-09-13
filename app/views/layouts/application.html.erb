@@ -28,6 +28,8 @@
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="msapplication-TileImage" content="/mstile-144x144.png">
   <meta name="application-name" content="Exemplary">
+
+  <%= yield :head %>
 </head>
 <body class='<%= "landing" if !user_signed_in? %>'>
   <%= render partial: 'layouts/header' %>

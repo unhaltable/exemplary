@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'list.min' %>
+<% end %>
+
 <h1>My documents</h1>
 
 <% if @documents.any? %>
