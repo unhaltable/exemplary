@@ -40,7 +40,7 @@ input,
 textarea {
   border: 1px solid $teal;
   font: 1em 'Questrial', sans-serif;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.75em;
 }
 
 button,
@@ -162,8 +162,48 @@ input[type="submit"] {
   }
 
 #landing-about {
-  display: block;
+  padding: 2em 1em;
+  text-align: center;
 }
+
+  .landing-steps {
+    display: inline-block;
+    margin-bottom: 2em;
+    text-align: center;
+    width: 25%;
+    vertical-align: top;
+
+    @include mobile-breakpoint() {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .landing-step-image {
+    @include border-radius(50%);
+    @include v(transition, background-color 0.3s);
+    background-color: $teal;
+    display: block;
+    height: 150px;
+    margin: 0 auto 1em;
+    width: 150px;
+
+    &:hover {
+      background-color: lighten($teal, 5%);
+    }
+  }
+
+    #step-1 {
+
+    }
+
+    #step-2 {
+
+    }
+
+    #step-3 {
+
+    }
 
 
 /* Log in/Register page */
@@ -172,7 +212,7 @@ input[type="submit"] {
   @include border-radius(5px);
   background: $teal;
   color: #fff;
-  margin: 0 auto;
+  margin: 2em auto;
   padding: 2em;
   width: 350px;
 
