@@ -2,8 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.page-preview {
-  height: 400px;
-  overflow: scroll;
+@import 'core';
+
+
+#pages {
+  display: table;
+  width: 100%;
+}
+
+#page-preview,
+#full-page {
+  display: table-cell;
+  vertical-align: top;
+}
+
+#page-preview {
+  max-height: 450px;
+  overflow-x: hidden;
+  overflow-y: auto;
   width: 220px;
+
+  img {
+    border: 3px solid transparent;
+    margin-bottom: 0.75em;
+
+    &:hover,
+    &.active {
+      border-color: $teal;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#full-page {
+  padding-left: 1em;
+  padding-top: 3px;
+
+  img {
+    max-width: 100%;
+  }
 }
