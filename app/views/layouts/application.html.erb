@@ -31,10 +31,10 @@
 
   <%= yield :head %>
 </head>
-<body class='<%= 'landing' if !user_signed_in? %>'>
+<body>
   <%= render partial: 'layouts/header' %>
 
-  <div id="content">
+  <div id="content" class='<%= 'landing' if (!user_signed_in? && controller.controller_name == 'application') %>'>
     <%= yield %>
   </div>
 
