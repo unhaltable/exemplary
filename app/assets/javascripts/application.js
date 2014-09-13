@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require jquery.Jcrop
 //= require angular
+
+angular.module('Exemplary')

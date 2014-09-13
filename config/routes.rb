@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  namespace :admin do
+    resources :users
+    resources :roles
+  end
+
   resources :documents do
     resources :sections, only: [:index, :new, :create]
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913171841) do
+ActiveRecord::Schema.define(version: 20140913191226) do
 
   create_table "comments", force: true do |t|
     t.integer  "score"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20140913171841) do
 
   add_index "notes", ["course_id"], name: "index_notes_on_course_id"
   add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+
+  create_table "roles", force: true do |t|
+    t.string "name"
+  end
 
   create_table "sections", force: true do |t|
     t.text     "content"
