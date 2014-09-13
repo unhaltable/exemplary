@@ -46,7 +46,7 @@ textarea {
   padding: 1em 3em;
   width: 100%;
 
-  @include breakpoint(mobile) {
+  @include mobile-breakpoint() {
     padding: 1em;
   }
 }
@@ -61,6 +61,12 @@ textarea {
 
 #site-footer {
   background: #fff;
+  padding: 1em 3em;
+  width: 100%;
+
+  @include mobile-breakpoint() {
+    padding: 1em;
+  }
 }
 
   #site-footer-pennapps {
@@ -78,7 +84,7 @@ textarea {
   padding: 1em 3em;
   width: 100%;
 
-  @include breakpoint(mobile) {
+  @include mobile-breakpoint() {
     padding: 1em;
   }
 }
