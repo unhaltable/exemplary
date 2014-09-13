@@ -20,6 +20,12 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  database: db/production.sqlite3
+production: &production
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  # Dokku and Heroku provide the environment variable DATABASE_URL
+  url: <%= ENV['DATABASE_URL'] %>
