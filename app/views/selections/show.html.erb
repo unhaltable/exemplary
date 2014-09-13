@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>X:</strong>
+  <%= @selection.x %>
+</p>
+
+<p>
+  <strong>Y:</strong>
+  <%= @selection.y %>
+</p>
+
+<p>
+  <strong>X2:</strong>
+  <%= @selection.x2 %>
+</p>
+
+<p>
+  <strong>Y2:</strong>
+  <%= @selection.y2 %>
+</p>
+
+<%= link_to 'Edit', edit_selection_path(@selection) %> |
+<%= link_to 'Back', selections_path %>
