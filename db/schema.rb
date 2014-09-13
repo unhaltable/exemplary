@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913152854) do
+ActiveRecord::Schema.define(version: 20140913155805) do
 
   create_table "comments", force: true do |t|
     t.integer  "score"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140913152854) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "university_id"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
