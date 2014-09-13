@@ -5,24 +5,6 @@
 @import 'core';
 
 
-#document-title {
-  border-bottom: 1px solid $teal;
-  margin-bottom: 1.5em;
-  width: 100%;
-}
-
-  #documents-back,
-  #document-name h1 {
-    display: table-cell;
-    margin-bottom: 0 !important;
-    vertical-align: middle;
-  }
-
-  #documents-back {
-    font-size: 1.2em;
-    padding-right: 0.5em;
-  }
-
 #document-actions {
   margin-bottom: 1.5em;
 

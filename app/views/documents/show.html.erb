@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div id="document-title">
-  <div id="document-name">
-    <%= link_to '<', documents_path, { title: 'Back to my documents', id: 'documents-back' } %>
+<div id="title-bar">
+  <div id="title-name">
+    <%= link_to '<', documents_path, { title: 'Back to my documents', id: 'title-back' } %>
     <h1><%= @document.name %></h1>
   </div>
-
 </div>
 
 <div id="document-actions">
@@ -17,10 +16,12 @@
   <strong>Download attachment:</strong>
   <%= link_to nil, @document.attachment.url %>
 </p>
+
 <p>
   <strong>Page count:</strong>
   <%= @document.page_count %>
 </p>
+
 <p id="page-previews">
   <p><strong>Preview:</strong></p>
   <% 1.upto(@document.page_count) do |i| %>

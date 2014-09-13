@@ -1,6 +1,8 @@
-<h1>Editing document</h1>
+<div id="title-bar">
+  <div id="title-name">
+    <%= link_to '<', @document, { title: 'Back to document', id: 'title-back' } %>
+    <h1>Editing document</h1>
+  </div>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
