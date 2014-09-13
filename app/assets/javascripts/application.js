@@ -16,4 +16,4 @@
 //= require jquery.Jcrop
 //= require angular
 
-angular.module('Exemplary')
+angular.module('Exemplary');
