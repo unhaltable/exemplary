@@ -23,3 +23,4 @@ courses.first.documents << ezstats
 me.documents << ezstats
 
 comment = Comment.create(content: "this is the definition of a shitty comment T_T")
+me.comments << comment
