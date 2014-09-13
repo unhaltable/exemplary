@@ -1,7 +1,7 @@
 @import 'mixins';
 
 $grey: #e4e9ea;
-$teal: #01e0ae;
+$teal: #01cdb9;
 
 
 /* Core styling */
@@ -33,6 +33,7 @@ a {
 h1,
 h2,
 h3 {
+  font-family: 'Questrial', sans-serif;
   font-weight: 400;
 }
 
@@ -90,6 +91,7 @@ input[type="submit"] {
 
     a {
       color: #fff;
+      margin: 0 1em;
     }
   }
 
@@ -159,6 +161,10 @@ input[type="submit"] {
   margin: 0 auto;
   padding: 2em;
   width: 350px;
+
+  @include mobile-breakpoint() {
+    width: 100%;
+  }
 
   a {
     color: #fff;

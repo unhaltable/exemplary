@@ -45,7 +45,7 @@
 
 /* For cleaner mobile breakpoints. */
 @mixin mobile-breakpoint() {
-  @media (max-width: 745px) {
+  @media (max-width: 700px) {
     @content;
   }
 }
