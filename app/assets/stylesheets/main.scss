@@ -32,7 +32,7 @@ a {
   text-decoration: none;
 
   &::after {
-    @include v(transform, translateY(10px));
+    @include v(transform, translateY(5px));
     bottom: 0;
   }
 
@@ -188,7 +188,7 @@ input[type="submit"] {
 /* Landing page content */
 
 #landing-header {
-  background: $teal url("hero.jpg") no-repeat center center / cover;
+  background: $teal image-url("hero.jpg") no-repeat center center / cover;
   color: #fff;
   display: table;
   height: 250px;
@@ -238,17 +238,17 @@ input[type="submit"] {
 
     #step-1 {
       @include v(animation, shiftUp .5s .2s ease-out);
-      background-image: url("step_upload.png");
+      background-image: image-url("step_upload.png");
     }
 
     #step-2 {
       @include v(animation, shiftUp .5s .3s ease-out);
-      background-image: url("step_edit.png");
+      background-image: image-url("step_edit.png");
     }
 
     #step-3 {
       @include v(animation, shiftUp .5s .4s ease-out);
-      background-image: url("step_vote.png");
+      background-image: image-url("step_vote.png");
     }
 
 
