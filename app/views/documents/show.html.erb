@@ -5,8 +5,15 @@
   <%= @document.name %>
 </p>
 <p>
-  <strong>Attachment:</strong>
-  <%= link_to nil, @document.attachment.url(:image) %>
+  <strong>Download attachment:</strong>
+  <%= link_to nil, @document.attachment.url %>
+</p>
+<p>
+  <strong>Page count:</strong>
+  <%= @document.page_count %>
+</p>
+<p>
+  <%= cl_image_tag(@document.attachment.full_public_id, format: :png) %>
 </p>
 
 <%= link_to 'Edit', edit_document_path(@document) %> |
