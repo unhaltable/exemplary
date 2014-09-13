@@ -9,11 +9,15 @@
       <%= f.email_field :email, autofocus: true %>
     </div>
 
-    <div><%= f.label :username %> <br />
-      <%= f.text_field :username, autocomplete: "off" %></div>
+    <div class="login-field">
+      <%= f.label :username %> <br />
+      <%= f.text_field :username, autocomplete: "off" %>
+    </div>
 
-      <div><%= f.label :university %> <br />
-        <%= collection_select(:person, :university_id, University.all, :id, :name) %> </div>
+    <div class="login-field">
+      <%= f.label :university %> <br />
+      <%= collection_select(:person, :university_id, University.all, :id, :name) %>
+    </div>
 
     <div class="login-field">
       <%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />

@@ -63,6 +63,12 @@ p + p {
   margin-top: 1em;
 }
 
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
 input,
 textarea {
   @include border-radius(5px);
@@ -273,6 +279,7 @@ input[type="submit"] {
     padding: 0.5em 0;
   }
 
+  input[type="text"],
   input[type="email"],
   input[type="password"],
   input[type="submit"] {
