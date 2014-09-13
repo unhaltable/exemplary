@@ -2,7 +2,7 @@
   <a id="site-header-title" href="/" title="Exemplary home">Exemplary</a>
   <nav id="site-header-nav">
     <% if user_signed_in? %>
-      <%= link_to '+ New test', new_document_path %> •
+      <%= link_to '+ New document', new_document_path %> •
       <%= link_to current_user.email, '#' %> •
       <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
     <% else %>
