@@ -118,6 +118,8 @@ input[type="submit"] {
 
     #site-header-search-form {
       border-bottom: 1px solid #fff;
+      display: table-cell;
+      vertical-align: middle;
       width: 350px;
 
       input[type="submit"] {
@@ -150,7 +152,8 @@ input[type="submit"] {
       }
 
     #site-header-search-adv {
-
+      display: table-cell;
+      vertical-align: middle;
     }
 
 
