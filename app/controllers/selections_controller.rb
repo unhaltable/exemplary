@@ -1,7 +1,6 @@
 class SelectionsController < ApplicationController
   before_action :set_selection, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
-  
+
   # GET /selections
   # GET /selections.json
   def index
@@ -15,7 +14,8 @@ class SelectionsController < ApplicationController
 
   # GET /selections/new
   def new
-    @selection = Selection.new
+    @section = Section.find(params[:section_id])
+    @selection = Selection.new section: @section
   end
 
   # GET /selections/1/edit

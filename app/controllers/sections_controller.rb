@@ -1,6 +1,8 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+
+  load_and_authorize_resource :document
+  load_and_authorize_resource :selection, through: :document
 
   # GET /sections
   # GET /sections.json
@@ -15,7 +17,6 @@ class SectionsController < ApplicationController
 
   # GET /sections/new
   def new
-    @document = Document.find(params[:document_id])
     @section = Section.new
   end
 
@@ -71,6 +72,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:content)
+      params.require(:section).permit(:document_id, :content)
     end
 end
