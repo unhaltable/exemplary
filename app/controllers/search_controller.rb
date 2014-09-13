@@ -1,10 +1,11 @@
 class SearchController < ApplicationController
 	def searchreq
 		#render plain: params
-		Comment.search do
-			fulltext "test"
+		search = Comment.search do
+			fulltext "shitty"
 		end
-		render plain: Comment.search
+
+		render plain: search.results
 	end
 
 	def searchpage
