@@ -75,4 +75,4 @@ gem 'devise'
 gem 'cancan'
 
 # To deal with timezone errors in Windows. Read more: https://github.com/middleman/middleman/issues/1097
-gem 'tzinfo-data'
+gem 'tzinfo-data' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
