@@ -1,0 +1,11 @@
+<%= form_tag("/search", method: "post") do %>
+<%= text_field_tag(:text) %>
+<%= submit_tag("Search") %> <br>
+
+
+<%= check_box_tag 'uni' %><label>University</label>
+<%= check_box_tag 'course' %><label>Course Code</label>
+<%= check_box_tag 'comment' %><label>Comment</label>
+<%= check_box_tag 'user' %><label>Username</label>
+
+<% end %>
