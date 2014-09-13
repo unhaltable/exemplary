@@ -9,6 +9,9 @@
   <div><%= f.label :username %> <br />
     <%= f.text_field :username, autocomplete: "off" %></div>
 
+    <div><%= f.label :university %> <br />
+      <%= collection_select(:person, :university_id, University.all, :id, :name) %> </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
