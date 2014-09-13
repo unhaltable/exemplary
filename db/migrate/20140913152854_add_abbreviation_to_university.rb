@@ -1,5 +1,5 @@
 class AddAbbreviationToUniversity < ActiveRecord::Migration
   def change
-    add_column :unversities, :abbreviation, :string
+    add_column :universities, :abbreviation, :string
   end
 end
