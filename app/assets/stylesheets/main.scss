@@ -136,21 +136,33 @@ input[type="submit"] {
   }
 }
 
+  .landing #content {
+    padding: 0;
+  }
+
 
 /* Landing page content */
 
 #landing-header {
-  background: $teal url("hero.jpg") no-repeat;
+  background: $teal url("hero.jpg") no-repeat center center / cover;
   color: #fff;
+  display: table;
+  height: 250px;
+  text-align: center;
+  width: 100%;
 }
 
   #landing-header-slogan {
+    display: table-cell;
     font-size: 2em;
     font-weight: 400;
+    height: 250px;
+    vertical-align: middle;
+    width: 100%;
   }
 
 #landing-about {
-
+  display: block;
 }
 
 

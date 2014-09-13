@@ -11,7 +11,7 @@
   <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
-<body>
+<body class='<%= "landing" if !user_signed_in? %>'>
   <%= render partial: 'layouts/header' %>
 
   <div id="content">
