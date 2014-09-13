@@ -283,11 +283,23 @@ input[type="submit"] {
     padding: 0.5em 0;
   }
 
+  select,
   input[type="text"],
   input[type="email"],
   input[type="password"],
   input[type="submit"] {
     width: 100%;
+  }
+
+  select {
+    @include border-radius(5px);
+    border: 1px solid $teal;
+    font: 1em 'Questrial', sans-serif;
+    padding: 0.5em 0.75em;
+
+    option {
+      padding: 0.5em 0.75em;
+    }
   }
 
   input[type="submit"] {
