@@ -12,6 +12,9 @@ group :development, :test do
 
   # Open emails in the browser instead of sending
   gem 'letter_opener'
+
+  # For searching whilst in dev
+  gem 'sunspot_solr'
 end
 
 group :test do
@@ -82,3 +85,6 @@ gem 'tzinfo-data' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 
 # To render markdown
 gem 'redcarpet'
+
+# For searching
+gem 'sunspot_rails'
