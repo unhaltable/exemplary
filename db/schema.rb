@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913040141) do
+ActiveRecord::Schema.define(version: 20140913140922) do
 
   create_table "comments", force: true do |t|
     t.integer  "score"
@@ -27,14 +27,33 @@ ActiveRecord::Schema.define(version: 20140913040141) do
   add_index "comments", ["section_id"], name: "index_comments_on_section_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "courses", force: true do |t|
+    t.string   "coursecode"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "documents", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "course_id"
   end
 
+  add_index "documents", ["course_id"], name: "index_documents_on_course_id"
   add_index "documents", ["user_id"], name: "index_documents_on_user_id"
+
+  create_table "notes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "course_id"
+    t.integer  "user_id"
+  end
+
+  add_index "notes", ["course_id"], name: "index_notes_on_course_id"
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
   create_table "sections", force: true do |t|
     t.text     "content"
@@ -57,6 +76,12 @@ ActiveRecord::Schema.define(version: 20140913040141) do
 
   add_index "selections", ["section_id"], name: "index_selections_on_section_id"
 
+  create_table "universities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,9 +95,11 @@ ActiveRecord::Schema.define(version: 20140913040141) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "university_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["university_id"], name: "index_users_on_university_id"
 
 end
