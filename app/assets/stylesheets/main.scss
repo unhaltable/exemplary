@@ -21,26 +21,25 @@ body {
 
 body {
   background: $grey;
-  font: 400 16px/20px 'Vollkorn', serif;
+  font: 400 16px/20px 'Questrial', serif;
 }
 
 a {
   border-bottom: 1px solid $teal;
-  color: $teal;
+  color: darken($teal, 5%);
   text-decoration: none;
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Questrial', sans-serif;
   font-weight: 400;
 }
 
 input,
 textarea {
   border: 1px solid $teal;
-  font: 1em 'Vollkorn', serif;
+  font: 1em 'Questrial', sans-serif;
   padding: 0.5em 1em;
 }
 
@@ -48,7 +47,7 @@ button,
 input[type="submit"] {
   @include v(transition, (background-color 0.3s, color 0.3s));
   cursor: pointer;
-  font: 1em 'Vollkorn', serif;
+  font: 1em 'Questrial', sans-serif;
   margin: 1em 0;
   padding: 0.5em 1em;
 }
@@ -60,7 +59,6 @@ input[type="submit"] {
   background: $teal;
   color: #fff;
   display: table;
-  font-family: 'Questrial', sans-serif;
   padding: 1em 3em;
   width: 100%;
 
@@ -132,6 +130,10 @@ input[type="submit"] {
   @include mobile-breakpoint() {
     padding: 2em 1em;
   }
+
+  h1 {
+    margin-bottom: 0.75em;
+  }
 }
 
 
@@ -196,3 +198,22 @@ input[type="submit"] {
   .login-field {
     margin-bottom: 1em;
   }
+
+
+/* Error messages */
+
+#error_explanation {
+  @include border-radius(5px);
+  border: 1px solid $teal;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+
+  h2 {
+    font-size: 1em;
+  }
+
+  li {
+    list-style: none;
+  }
+}
