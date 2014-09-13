@@ -65,6 +65,9 @@ gem 'rack-timeout'
 # Use puma as the app server
 # gem 'puma'
 
+# Use paperclip for file attachments
+gem 'paperclip', '~> 4.2.0'
+
 # Use devise for authentication
 gem 'devise'
 
