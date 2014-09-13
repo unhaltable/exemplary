@@ -24,6 +24,12 @@ body {
 ::selection      { background-color: $teal; }
 ::-moz-selection { background-color: $teal; }
 
+::-webkit-input-placeholder { color: $grey; }
+:-moz-placeholder           { color: $grey; }
+::-moz-placeholder          { color: $grey; }
+:-ms-input-placeholder      { color: $grey; }
+
+
 a {
   border-bottom: 1px solid $teal;
   color: darken($teal, 5%);
@@ -45,6 +51,8 @@ textarea {
   border: 1px solid $teal;
   font: 1em 'Questrial', sans-serif;
   padding: 0.5em 0.75em;
+
+  &:focus { outline: none; }
 }
 
 button,
@@ -103,11 +111,43 @@ input[type="submit"] {
     input {
       background: none;
       border: none;
-      border-bottom: 1px solid #fff;
       color: #fff;
       margin: 0;
     }
   }
+
+    #site-header-search-form {
+      border-bottom: 1px solid #fff;
+      width: 350px;
+
+      input[type="submit"] {
+        background: url("search.png") no-repeat center center / contain;
+        background-size: 20px 20px;
+        text-indent: -3000em;
+      }
+    }
+
+    #site-header-filter {
+      background: url("dropdown.png") no-repeat center right / contain;
+      background-size: 12px 12px;
+      display: inline-block;
+      font-size: 0.95em;
+      margin-right: 1em;
+      width: 100px;
+    }
+
+      #search_filter {
+        -webkit-appearance: none;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font: 1em/1.5em 'Questrial', sans-serif;
+        width: 110px;
+
+        option {
+          background: $teal;
+        }
+      }
 
     #site-header-search-adv {
 

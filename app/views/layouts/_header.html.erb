@@ -2,9 +2,13 @@
   <a id="site-header-title" href="/" title="Exemplary home">Exemplary</a>
 
   <section id="site-header-search">
-    <%= form_tag("/search", method: "post") do %>
+    <%= form_tag("/search", method: "post", id: "site-header-search-form") do %>
       <%= text_field_tag :text, nil, placeholder: "Search" %>
-      <%= select_tag "search_filter", options_for_select([ "Documents", "University", "Course", "Comment", "Username" ], "Documents") %>
+      <div id="site-header-filter">
+        <%= select_tag "search_filter",
+                       options_for_select([ "Documents", "University", "Course", "Comment", "Username" ],
+                                          "Documents") %>
+      </div>
       <%= submit_tag("Search") %>
     <% end %>
     <%= link_to "Advanced", "/search", id: "site-header-search-adv" %>
