@@ -1,14 +1,14 @@
-<% content_for :head do %>
-  <%= javascript_include_tag 'list.min' %>
-<% end %>
-
-<h1>My documents</h1>
+<div id="title-bar">
+  <div id="title-name">
+    <h1>My documents</h1>
+  </div>
+</div>
 
 <% if @documents.any? %>
   <div id="documents">
     <div id="documents-toolbar">
-      <%= link_to '+ New document', new_document_path, id: 'documents-new' %>
       <input class="search" id="documents-search" placeholder="Search" />
+      <%= link_to '+ New document', new_document_path, id: 'documents-new' %>
     </div>
 
     <table>
@@ -34,10 +34,11 @@
       </tbody>
     </table>
   </div>
-  <br>
 <% end %>
 
 <% content_for :foot do %>
+  <%= javascript_include_tag 'list.min' %>
+
   <script>
     var options = {
       valueNames: [ 'name', 'created', 'updated' ]
