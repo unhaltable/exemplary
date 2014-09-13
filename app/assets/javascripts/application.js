@@ -16,4 +16,24 @@
 //= require jquery.Jcrop
 //= require angular
 
-angular.module('Exemplary');
+(function () {
+
+  function SectionsController() {
+
+  }
+
+  function PageScroller() {
+    return {
+      link: function ($scope, $element, $attrs) {
+        $element.click(function () {
+          debugger;
+        });
+      }
+    };
+  }
+
+  angular.module('Exemplary', [])
+      .controller('SectionsController', SectionsController)
+      .directive('pageScroller', PageScroller);
+
+}());

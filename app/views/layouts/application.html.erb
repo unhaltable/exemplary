@@ -31,7 +31,7 @@
 
   <%= yield :head %>
 </head>
-<body>
+<body ng-app="Exemplary">
   <%= render partial: 'layouts/header' %>
 
   <div id="content" class='<%= 'landing' if (!user_signed_in? && controller.controller_name == 'application') %>'>
