@@ -1,3 +1,6 @@
+@import 'core';
+
+
 /* Core styling */
 
 *,
@@ -14,19 +17,329 @@ body {
 }
 
 body {
-  font-family: 'Old Standard TT', serif;
+  background: $grey;
+  font: 400 16px/20px 'Questrial', serif;
+}
+
+::selection      { background-color: $teal; }
+::-moz-selection { background-color: $teal; }
+
+a {
+  @include v(transition, all .15s ease-in-out);
+  color: darken($teal, 5%);
+  padding-bottom: 0.2em;
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    @include v(transform, translateY(10px));
+    bottom: 0;
+  }
+
+  &::after {
+    @include v(transition, (opacity .3s, transform .3s));
+    background: darken($teal, 5%);
+    content: '';
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &:hover::after {
+    @include v(transform, translateY(0));
+    opacity: 1;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+p + p {
+  margin-top: 1em;
+}
+
+input,
+textarea {
+  border: 1px solid $teal;
+  font: 1em 'Questrial', sans-serif;
+  padding: 0.5em 0.75em;
+}
+
+button,
+input[type="submit"] {
+  @include v(transition, (background-color 0.3s, color 0.3s));
+  cursor: pointer;
+  font: 1em 'Questrial', sans-serif;
+  margin: 1em 0;
+  padding: 0.5em 1em;
 }
 
 
 /* Header */
 
 #site-header {
-  font-family: 'Questrial', sans-serif;
+  background: $teal;
+  color: #fff;
+  display: table;
+  padding: 1em 3em;
+  width: 100%;
+
+  @include mobile-breakpoint() {
+    padding: 1em;
+  }
 }
+
+  a#site-header-title {
+    @include v(transition, (background-color 0.3s, color 0.3s));
+    border: 1px solid #fff;
+    color: #fff;
+    display: table-cell;
+    padding: 0.75em 1em;
+    text-align: center;
+    width: 125px;
+
+    &:hover {
+      background-color: #fff;
+      color: $teal;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  #site-header-nav {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+
+    a {
+      color: #fff;
+      margin: 0 1em;
+
+      &::after {
+        background: #fff;
+      }
+    }
+  }
 
 
 /* Footer  */
 
 #site-footer {
+  border-top: 1px solid transparentize($teal, 0.75);
+  padding: 2em 3em;
+  text-align: center;
+  width: 100%;
 
+  @include mobile-breakpoint() {
+    padding: 1em;
+  }
+
+  a {
+    border-bottom: none;
+  }
+}
+
+  #site-footer-pennapps {
+    margin-bottom: 1em;
+  }
+
+  #site-footer-devs {
+    color: $teal;
+    font-size: 0.95em;
+  }
+
+
+/* Main content */
+
+#content {
+  padding: 2em 3em;
+  width: 100%;
+
+  @include mobile-breakpoint() {
+    padding: 2em 1em;
+  }
+
+  h1 {
+    line-height: 1.5em;
+    margin-bottom: 0.75em;
+  }
+}
+
+  .landing #content {
+    padding: 0;
+  }
+
+.field {
+  margin-bottom: 1em;
+}
+
+
+/* Landing page content */
+
+#landing-header {
+  background: $teal url("hero.jpg") no-repeat center center / cover;
+  color: #fff;
+  display: table;
+  height: 250px;
+  text-align: center;
+  width: 100%;
+}
+
+  #landing-header-slogan {
+    @include v(animation, shiftDown .5s .1s ease-out);
+    display: table-cell;
+    font-size: 2em;
+    font-weight: 400;
+    height: 250px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+#landing-about {
+  padding: 2em 1em;
+  text-align: center;
+}
+
+  .landing-steps {
+    display: inline-block;
+    margin-bottom: 2em;
+    text-align: center;
+    width: 25%;
+    vertical-align: top;
+
+    @include mobile-breakpoint() {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .landing-step-image {
+    @include border-radius(50%);
+    background-color: $teal;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    display: block;
+    height: 150px;
+    margin: 0 auto 1em;
+    width: 150px;
+  }
+
+    #step-1 {
+      @include v(animation, shiftUp .5s .2s ease-out);
+      background-image: url("step_upload.png");
+    }
+
+    #step-2 {
+      @include v(animation, shiftUp .5s .3s ease-out);
+      background-image: url("step_edit.png");
+    }
+
+    #step-3 {
+      @include v(animation, shiftUp .5s .4s ease-out);
+      background-image: url("step_vote.png");
+    }
+
+
+/* Log in/Register page */
+
+#login {
+  @include border-radius(5px);
+  background: $teal;
+  color: #fff;
+  margin: 2em auto;
+  padding: 2em;
+  width: 375px;
+
+  @include mobile-breakpoint() {
+    width: 100%;
+  }
+
+  a {
+    color: #fff;
+    padding: 0.5em 0;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    background-color: $teal;
+    border: 1px solid #fff;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: $teal;
+    }
+  }
+
+  #error_explanation {
+    border: 1px solid #fff;
+  }
+}
+
+  #login-prompt {
+    margin-bottom: 1em;
+  }
+
+  .login-field {
+    margin-bottom: 1em;
+  }
+
+
+/* Flash messages */
+
+#error_explanation {
+  @include border-radius(5px);
+  border: 1px solid $teal;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+
+  h2 {
+    font-size: 1em;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+
+/* Documents table */
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th {
+  border-bottom: 1px solid $teal;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.5em;
+}
+
+tr th:first-child,
+tr td:first-child {
+  width: 75%;
+}
+
+tbody tr:nth-child(odd) {
+  background: lighten($grey, 5%);
 }

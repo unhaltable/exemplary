@@ -65,6 +65,12 @@ gem 'rack-timeout'
 # Use puma as the app server
 # gem 'puma'
 
+# Use CarrierWave for HTML file uploads
+gem 'carrierwave'
+
+# Use Cloudinary for file & image uploads
+gem 'cloudinary'
+
 # Use devise for authentication
 gem 'devise'
 
@@ -73,3 +79,6 @@ gem 'cancan'
 
 # To deal with timezone errors in Windows. Read more: https://github.com/middleman/middleman/issues/1097
 gem 'tzinfo-data' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
+
+# To render markdown
+gem 'redcarpet'

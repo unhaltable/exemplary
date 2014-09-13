@@ -13,6 +13,7 @@ bower.json
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/uploads/tmp
 /db/*.sqlite3
 
 # Ignore RubyMine/IntelliJ files
@@ -20,3 +21,7 @@ bower.json
 
 # Ignore generated assets
 public/assets/
+
+# Windows junk
+Thumbs.db
+

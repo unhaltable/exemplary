@@ -1,0 +1,92 @@
+/* Variables */
+
+$grey: #e4e9ea;
+$teal: #01cdb9;
+
+
+/* Mixins */
+
+/* Handles vendor prefixes. */
+@mixin v($prop, $args) {
+  -webkit-#{$prop}: $args;
+     -moz-#{$prop}: $args;
+      -ms-#{$prop}: $args;
+       -o-#{$prop}: $args;
+          #{$prop}: $args;
+}
+
+/* Various mixins that allow for easier cross-browser support. */
+@mixin border-radius($radius) {
+  @include v(border-radius, $radius);
+}
+
+/* Only the top left and top right corners. */
+@mixin border-radius-top($radius) {
+  -webkit-border-top-right-radius: $radius;
+   -webkit-border-top-left-radius: $radius;
+      -moz-border-radius-topright: $radius;
+       -moz-border-radius-topleft: $radius;
+          border-top-right-radius: $radius;
+           border-top-left-radius: $radius;
+}
+
+/* Only the bottom left and bottom right corners. */
+@mixin border-radius-bottom($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+      -moz-border-radius-bottomright: $radius;
+       -moz-border-radius-bottomleft: $radius;
+          border-bottom-right-radius: $radius;
+           border-bottom-left-radius: $radius;
+}
+
+/* A linear gradient going from top to bottom. */
+@mixin background-gradient($start, $end) {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($start), to($end));
+  background: -webkit-linear-gradient(top, $start, $end);
+  background: -moz-linear-gradient(top, $start, $end);
+  background: -o-linear-gradient(top, $start, $end);
+  background: linear-gradient(top, $start, $end);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end');
+  background-color: $start;
+}
+
+/* For cleaner mobile breakpoints. */
+@mixin mobile-breakpoint() {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+
+
+/* Animations */
+
+@keyframes shiftUp {
+  0%   { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@-moz-keyframes shiftUp {
+  0%   { opacity: 0; -moz-transform: translateY(50px); }
+  100% { opacity: 1; -moz-transform: translateY(0px); }
+}
+
+@-webkit-keyframes shiftUp {
+  0%   { opacity: 0; -webkit-transform: translateY(50px); }
+  100% { opacity: 1; -webkit-transform: translateY(0px); }
+}
+
+@keyframes shiftDown {
+  0%   { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@-moz-keyframes shiftDown {
+  0%   { opacity: 0; -moz-transform: translateY(-50px); }
+  100% { opacity: 1; -moz-transform: translateY(0px); }
+}
+
+@-webkit-keyframes shiftDown {
+  0%   { opacity: 0; -webkit-transform: translateY(-50px); }
+  100% { opacity: 1; -webkit-transform: translateY(0px); }
+}
