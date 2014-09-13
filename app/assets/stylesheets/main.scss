@@ -39,7 +39,17 @@ h3 {
 input,
 textarea {
   border: 1px solid $teal;
-  padding: 0.75em 1em;
+  font: 1em 'Vollkorn', serif;
+  padding: 0.5em 1em;
+}
+
+button,
+input[type="submit"] {
+  @include v(transition, (background-color 0.3s, color 0.3s));
+  cursor: pointer;
+  font: 1em 'Vollkorn', serif;
+  margin: 1em 0;
+  padding: 0.5em 1em;
 }
 
 
@@ -87,8 +97,8 @@ textarea {
 /* Footer  */
 
 #site-footer {
-  background: #fff;
-  padding: 1em 3em;
+  border-top: 1px solid transparentize($teal, 0.75);
+  padding: 2em 3em;
   text-align: center;
   width: 100%;
 
@@ -143,5 +153,40 @@ textarea {
 /* Log in/Register page */
 
 #login {
+  @include border-radius(5px);
+  background: $teal;
+  color: #fff;
+  margin: 0 auto;
+  padding: 2em;
+  width: 350px;
 
+  a {
+    color: #fff;
+    padding: 0.5em 0;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    background-color: $teal;
+    border: 1px solid #fff;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: $teal;
+    }
+  }
 }
+
+  #login-prompt {
+    margin-bottom: 1em;
+  }
+
+  .login-field {
+    margin-bottom: 1em;
+  }
