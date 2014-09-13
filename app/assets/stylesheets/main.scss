@@ -1,3 +1,9 @@
+@import 'mixins';
+
+$grey: #e4e9ea;
+$teal: #20ffb8;
+
+
 /* Core styling */
 
 *,
@@ -14,19 +20,89 @@ body {
 }
 
 body {
-  font-family: 'Old Standard TT', serif;
+  background: $grey;
+  font: 400 16px/20px 'Old Standard TT', serif;
+}
+
+a {
+  border-bottom: 1px solid $teal;
+  color: $teal;
+  text-decoration: none;
+}
+
+input,
+textarea {
+  border: 1px solid $teal;
+  padding: 0.75em 1em;
 }
 
 
 /* Header */
 
 #site-header {
+  background: $teal;
+  color: #fff;
   font-family: 'Questrial', sans-serif;
+  padding: 1em 3em;
+  width: 100%;
+
+  @include breakpoint(mobile) {
+    padding: 1em;
+  }
 }
+
+  #site-header-title {
+    border: 1px solid #fff;
+    padding: 0.75em 1em;
+  }
 
 
 /* Footer  */
 
 #site-footer {
+  background: #fff;
+}
+
+  #site-footer-pennapps {
+
+  }
+
+  #site-footer-devs {
+
+  }
+
+
+/* Main content */
+
+#content {
+  padding: 1em 3em;
+  width: 100%;
+
+  @include breakpoint(mobile) {
+    padding: 1em;
+  }
+}
+
+
+/* Landing page content */
+
+#landing-header {
+  background: $teal url("hero.jpg") no-repeat;
+  color: #fff;
+}
+
+  #landing-header-slogan {
+    font-size: 2em;
+    font-weight: 400;
+  }
+
+#landing-about {
+
+}
+
+
+/* Log in/Register page */
+
+#login {
 
 }
