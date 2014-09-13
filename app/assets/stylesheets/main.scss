@@ -21,6 +21,9 @@ body {
   font: 400 16px/20px 'Questrial', serif;
 }
 
+::selection      { background-color: $teal; }
+::-moz-selection { background-color: $teal; }
+
 a {
   border-bottom: 1px solid $teal;
   color: darken($teal, 5%);
