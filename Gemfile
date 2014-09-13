@@ -81,4 +81,4 @@ gem 'cancan'
 gem 'tzinfo-data' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 
 # To render markdown
-gem 'Redcarpet'
+gem 'redcarpet'
