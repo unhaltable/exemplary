@@ -1,5 +1,15 @@
 <header id="site-header">
   <a id="site-header-title" href="/" title="Exemplary home">Exemplary</a>
+
+  <section id="site-header-search">
+    <%= form_tag("/search", method: "post") do %>
+      <%= text_field_tag :text, nil, placeholder: "Search" %>
+      <%= select_tag "search_filter", options_for_select([ "Documents", "University", "Course", "Comment", "Username" ], "Documents") %>
+      <%= submit_tag("Search") %>
+    <% end %>
+    <%= link_to "Advanced", "/search", id: "site-header-search-adv" %>
+  </section>
+
   <nav id="site-header-nav">
     <% if user_signed_in? %>
       <%= link_to '+ New document', new_document_path %> •
