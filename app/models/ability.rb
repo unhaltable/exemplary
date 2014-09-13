@@ -7,6 +7,9 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :manage, Document, user_id: user.id
+      can :manage, Section, document: { user_id: user.id }
+      can :manage, Selection, section: { document: { user_id: user.id } }
     end
 
     #
