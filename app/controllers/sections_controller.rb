@@ -14,6 +14,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/new
   def new
+    @document = Document.find(params[:document_id])
     @section = Section.new
   end
 

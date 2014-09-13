@@ -9,6 +9,10 @@ class DocumentUploader < CarrierWave::Uploader::Base
     process convert: :png
   end
 
+  version :thumbnail do
+    resize_to_limit(100, nil)
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list

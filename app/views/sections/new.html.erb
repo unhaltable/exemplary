@@ -1,5 +1,13 @@
 <h1>New section</h1>
 
-<%= render 'form' %>
+<div class='page-preview'>
+<% 1.upto(@document.page_count) do |i| %>
+	<%= cl_image_tag(@document.attachment.full_public_id, format: :png, page: i, crop: :fit, width: 200) %>
+<% end %>
+</div>
+
+<div class='full-page'>
+
+</div>
 
 <%= link_to 'Back to document', document_path(params['document_id']) %>
