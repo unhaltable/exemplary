@@ -9,6 +9,12 @@
       <%= f.email_field :email, autofocus: true %>
     </div>
 
+    <div><%= f.label :username %> <br />
+      <%= f.text_field :username, autocomplete: "off" %></div>
+
+      <div><%= f.label :university %> <i href="/universities"> Your's not here?</i><br />
+        <%= collection_select(:user, :university_id, University.all, :id, :name) %> </div>
+
     <div class="login-field">
       <%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
       <%= f.password_field :password, autocomplete: "off" %>
