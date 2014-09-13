@@ -209,13 +209,15 @@ input[type="submit"] {
     display: table-cell;
     font-size: 2em;
     font-weight: 400;
-    height: 250px;
+    height: 325px;
     vertical-align: middle;
     width: 100%;
   }
 
 #landing-about {
-  padding: 3.5em 1em;
+  margin: 0 auto;
+  max-width: 950px;
+  padding: 3.5em 2em;
   text-align: center;
 }
 
