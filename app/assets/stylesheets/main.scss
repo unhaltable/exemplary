@@ -280,3 +280,31 @@ input[type="submit"] {
     list-style: none;
   }
 }
+
+
+/* Documents table */
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th {
+  border-bottom: 1px solid $teal;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.5em;
+}
+
+tr th:first-child,
+tr td:first-child {
+  width: 75%;
+}
+
+tbody tr:nth-child(odd) {
+  background: lighten($grey, 5%);
+}
