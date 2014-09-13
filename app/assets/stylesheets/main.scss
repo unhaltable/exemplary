@@ -1,7 +1,7 @@
 @import 'mixins';
 
 $grey: #e4e9ea;
-$teal: #20ffb8;
+$teal: #01e0ae;
 
 
 /* Core styling */
@@ -21,13 +21,19 @@ body {
 
 body {
   background: $grey;
-  font: 400 16px/20px 'Old Standard TT', serif;
+  font: 400 16px/20px 'Vollkorn', serif;
 }
 
 a {
   border-bottom: 1px solid $teal;
   color: $teal;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
 }
 
 input,
@@ -42,6 +48,7 @@ textarea {
 #site-header {
   background: $teal;
   color: #fff;
+  display: table;
   font-family: 'Questrial', sans-serif;
   padding: 1em 3em;
   width: 100%;
@@ -51,9 +58,29 @@ textarea {
   }
 }
 
-  #site-header-title {
+  a#site-header-title {
+    @include v(transition, (background-color 0.3s, color 0.3s));
     border: 1px solid #fff;
+    color: #fff;
+    display: table-cell;
     padding: 0.75em 1em;
+    text-align: center;
+    width: 125px;
+
+    &:hover {
+      background-color: #fff;
+      color: $teal;
+    }
+  }
+
+  #site-header-nav {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+
+    a {
+      color: #fff;
+    }
   }
 
 
@@ -62,30 +89,36 @@ textarea {
 #site-footer {
   background: #fff;
   padding: 1em 3em;
+  text-align: center;
   width: 100%;
 
   @include mobile-breakpoint() {
     padding: 1em;
   }
+
+  a {
+    border-bottom: none;
+  }
 }
 
   #site-footer-pennapps {
-
+    margin-bottom: 1em;
   }
 
   #site-footer-devs {
-
+    color: $teal;
+    font-size: 0.95em;
   }
 
 
 /* Main content */
 
 #content {
-  padding: 1em 3em;
+  padding: 2em 3em;
   width: 100%;
 
   @include mobile-breakpoint() {
-    padding: 1em;
+    padding: 2em 1em;
   }
 }
 
