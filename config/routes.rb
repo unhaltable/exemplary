@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
+  post 'search' => 'search#searchreq'
+  get 'search' => 'search#searchpage'
+
 end
