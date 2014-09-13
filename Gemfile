@@ -66,7 +66,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'rack-timeout'
 
 # Use puma as the app server
-gem 'puma'
+# gem 'puma'
 
 # Use devise for authentication
 gem 'devise'
