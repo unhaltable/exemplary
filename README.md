@@ -31,6 +31,7 @@ The rest of the dependencies can be installed by running:
 
 Start a local test server by running:
 
+    bundle exec rake sunspot:solr:start
     rails server
 
 ### Deploying to production
