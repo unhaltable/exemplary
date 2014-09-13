@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.7)
     bcrypt (3.1.7-x64-mingw32)
     builder (3.2.2)
@@ -39,10 +40,14 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.4)
-      climate_control (>= 0.0.3, < 1.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+    cloudinary (1.0.76)
+      aws_cf_signer
+      rest-client
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -58,6 +63,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
+    ffi (1.9.3-x64-mingw32)
     formtastic (3.0.0)
       actionpack (>= 3.2.13)
     hike (1.2.3)
@@ -83,16 +89,12 @@ GEM
       minitest (~> 5.0)
       rails (~> 4.1)
     multi_json (1.10.1)
+    netrc (0.7.7)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     nokogiri (1.6.3.1-x64-mingw32)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     pg (0.17.1)
     pg (0.17.1-x64-mingw32)
     polyglot (0.3.5)
@@ -123,6 +125,13 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rest-client (1.7.2-x64-mingw32)
+      ffi (~> 1.9)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -153,8 +162,6 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2014.7)
-      tzinfo (>= 1.0.0)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -170,13 +177,14 @@ PLATFORMS
 DEPENDENCIES
   cancan
   capybara
+  carrierwave
+  cloudinary
   devise
   formtastic
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
   minitest-spec-rails
-  paperclip (~> 4.2.0)
   pg
   rack-timeout
   rails (= 4.1.5)
@@ -185,5 +193,4 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sqlite3
   turbolinks
-  tzinfo-data
   uglifier (>= 1.3.0)
