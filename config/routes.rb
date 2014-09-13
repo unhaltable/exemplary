@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  resources :universities
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :documents do
     resources :sections, only: [:index, :new, :create]
