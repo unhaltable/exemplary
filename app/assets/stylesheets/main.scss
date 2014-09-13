@@ -183,6 +183,9 @@ input[type="submit"] {
     @include border-radius(50%);
     @include v(transition, background-color 0.3s);
     background-color: $teal;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
     display: block;
     height: 150px;
     margin: 0 auto 1em;
@@ -194,15 +197,15 @@ input[type="submit"] {
   }
 
     #step-1 {
-
+      background-image: url("step_upload.png");
     }
 
     #step-2 {
-
+      background-image: url("step_edit.png");
     }
 
     #step-3 {
-
+      background-image: url("step_vote.png");
     }
 
 
