@@ -6,24 +6,27 @@
 
 <% if @documents.any? %>
   <div id="documents">
-    <input class="search" placeholder="Search" />
-    <button class="sort" data-sort="name">
-      Sort by name
-    </button>
+    <div id="documents-toolbar">
+      <input class="search" id="documents-search" placeholder="Search" />
+      <%= link_to '+ New Document', new_document_path, id: 'documents-new' %>
+    </div>
 
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th colspan="3">Actions</th>
+          <th id="doc-head-name" class="sort asc" data-sort="name">Name</th>
+          <th id="doc-head-created" class="sort" data-sort="created">Created</th>
+          <th id="doc-head-updated" class="sort" data-sort="updated">Last updated</th>
+          <th colspan="2">Actions</th>
         </tr>
       </thead>
 
       <tbody class="list">
         <% @documents.each do |document| %>
           <tr>
-            <td class="name"><%= document.name %></td>
-            <td><%= link_to 'Show', document %></td>
+            <td class="name"><%= link_to document.name, document %></td>
+            <td class="created"><%= document.created_at %></td>
+            <td class="updated"><%= document.updated_at %></td>
             <td><%= link_to 'Edit', edit_document_path(document) %></td>
             <td><%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
@@ -34,13 +37,10 @@
   <br>
 <% end %>
 
-<%= link_to 'New Document', new_document_path %>
-
-
 <% content_for :foot do %>
   <script>
     var options = {
-      valueNames: [ 'name' ]
+      valueNames: [ 'name', 'created', 'updated' ]
     };
 
     var docsList = new List('documents', options);

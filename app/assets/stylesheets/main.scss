@@ -65,13 +65,17 @@ p + p {
 
 input,
 textarea {
+  @include border-radius(5px);
   border: 1px solid $teal;
   font: 1em 'Questrial', sans-serif;
   padding: 0.5em 0.75em;
+
+  &:focus { outline: none; }
 }
 
 button,
 input[type="submit"] {
+  @include border-radius(5px);
   @include v(transition, (background-color 0.3s, color 0.3s));
   cursor: pointer;
   font: 1em 'Questrial', sans-serif;
@@ -335,34 +339,66 @@ td {
   padding: 0.5em;
 }
 
-tr th:first-child,
-tr td:first-child {
-  width: 75%;
+#doc-head-name,
+.name {
+  width: 50%;
+}
+
+#doc-head-created,
+.created,
+#doc-head-updated,
+.updated {
+  width: 17%;
 }
 
 tbody tr:nth-child(odd) {
   background: lighten($grey, 5%);
 }
 
+#documents-toolbar {
+  display: table;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+  #documents-search,
+  #documents-new {
+    display: table-cell;
+    width: 50%;
+  }
+
+  #documents-search {
+    max-width: 300px;
+  }
+
+  #documents-new {
+    @include border-radius(5px);
+    @include v(transition, (background-color 0.3s, color 0.3s));
+    background-color: $teal;
+    border: 1px solid $teal;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-align: center;
+    width: 175px;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: $teal;
+    }
+  }
+
 
 /* Sorting (list.js) */
 
 .sort {
-  background-color: $teal;
-  padding: 0.5em 1em;
-  border: none;
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
+  cursor: pointer;
 }
-.sort:hover {
-  text-decoration: none;
-  background-color:#1b8aba;
-}
-.sort:focus {
-  outline:none;
-}
-.sort:after {
+
+.sort::after {
   display:inline-block;
   width: 0;
   height: 0;
@@ -374,23 +410,25 @@ tbody tr:nth-child(odd) {
   top:-10px;
   right:-5px;
 }
-.sort.asc:after {
+
+.sort.asc::after {
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #fff;
+  border-top: 5px solid $teal;
   content:"";
   position: relative;
   top:4px;
   right:-5px;
 }
-.sort.desc:after {
+
+.sort.desc::after {
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid #fff;
+  border-bottom: 5px solid $teal;
   content:"";
   position: relative;
   top:-4px;
