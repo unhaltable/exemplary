@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :comments
   belongs_to :university
 
+  searchable do
+
+  end
+
 end
