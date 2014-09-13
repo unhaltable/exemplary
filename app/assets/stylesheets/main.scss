@@ -1,0 +1,32 @@
+/* Core styling */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Old Standard TT', serif;
+}
+
+
+/* Header */
+
+#site-header {
+  font-family: 'Questrial', sans-serif;
+}
+
+
+/* Footer  */
+
+#site-footer {
+
+}
