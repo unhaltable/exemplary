@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :university
 
   searchable do
-
+    string :username
   end
 
 end
