@@ -436,3 +436,24 @@ tbody tr:nth-child(odd) {
   top:-4px;
   right:-5px;
 }
+
+
+/* Title bar */
+
+#title-bar {
+  border-bottom: 1px solid $teal;
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+
+  #title-back,
+  #title-name h1 {
+    display: table-cell;
+    margin-bottom: 0 !important;
+    vertical-align: middle;
+  }
+
+  #title-back {
+    font-size: 1.2em;
+    padding-right: 0.5em;
+  }
