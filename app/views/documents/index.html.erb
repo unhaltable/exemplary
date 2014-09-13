@@ -6,14 +6,15 @@
 
 <% if @documents.any? %>
   <div id="documents">
-    <input class="search" placeholder="Search" />
-
-    <%= link_to 'New Document', new_document_path %>
+    <div id="documents-toolbar">
+      <input class="search" id="documents-search" placeholder="Search" />
+      <%= link_to '+ New Document', new_document_path, id: 'documents-new' %>
+    </div>
 
     <table>
       <thead>
         <tr>
-          <th id="doc-head-name" class="sort" data-sort="name">Name</th>
+          <th id="doc-head-name" class="sort asc" data-sort="name">Name</th>
           <th id="doc-head-created" class="sort" data-sort="created">Created</th>
           <th id="doc-head-updated" class="sort" data-sort="updated">Last updated</th>
           <th colspan="2">Actions</th>
