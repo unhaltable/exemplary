@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :documents
   has_many :comments
+  has_many :courses
   has_and_belongs_to_many :roles
   belongs_to :university
 
