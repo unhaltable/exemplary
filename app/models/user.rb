@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
 
   has_many :documents
   has_many :comments
+  belongs_to :university
 
 end
