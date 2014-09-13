@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       redirect_to documents_path
     end
+
+    # Discard flash messages
+    flash.discard
   end
 
 end
