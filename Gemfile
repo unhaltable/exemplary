@@ -77,8 +77,8 @@ gem 'cloudinary'
 # Use devise for authentication
 gem 'devise'
 
-# Use CanCan for authorization
-gem 'cancan'
+# Use CanCanCan for authorization
+gem 'cancancan', '~> 1.9'
 
 # To deal with timezone errors in Windows. Read more: https://github.com/middleman/middleman/issues/1097
 gem 'tzinfo-data' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
