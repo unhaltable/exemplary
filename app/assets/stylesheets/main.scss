@@ -36,6 +36,10 @@ h3 {
   font-weight: 400;
 }
 
+p + p {
+  margin-top: 1em;
+}
+
 input,
 textarea {
   border: 1px solid $teal;
@@ -132,6 +136,7 @@ input[type="submit"] {
   }
 
   h1 {
+    line-height: 1.5em;
     margin-bottom: 0.75em;
   }
 }
@@ -181,7 +186,6 @@ input[type="submit"] {
 
   .landing-step-image {
     @include border-radius(50%);
-    @include v(transition, background-color 0.3s);
     background-color: $teal;
     background-position: center center;
     background-repeat: no-repeat;
@@ -190,10 +194,6 @@ input[type="submit"] {
     height: 150px;
     margin: 0 auto 1em;
     width: 150px;
-
-    &:hover {
-      background-color: lighten($teal, 5%);
-    }
   }
 
     #step-1 {
@@ -217,7 +217,7 @@ input[type="submit"] {
   color: #fff;
   margin: 2em auto;
   padding: 2em;
-  width: 350px;
+  width: 375px;
 
   @include mobile-breakpoint() {
     width: 100%;
