@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /documents
   # GET /documents.json
@@ -24,7 +25,9 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-    @document = Document.new(document_params)
+    @document = Document.new document_params.merge!({
+        user: current_user
+    })
 
     respond_to do |format|
       if @document.save
@@ -69,6 +72,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:name)
+      params.require(:document).permit(:name, :attachment)
     end
 end

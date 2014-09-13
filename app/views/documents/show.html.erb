@@ -4,6 +4,10 @@
   <strong>Name:</strong>
   <%= @document.name %>
 </p>
+<p>
+  <strong>Attachment:</strong>
+  <%= link_to nil, @document.attachment.url %>
+</p>
 
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>

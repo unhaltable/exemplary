@@ -6,4 +6,6 @@ class Document < ActiveRecord::Base
 
   validates :user, presence: true
 
+  mount_uploader :attachment, DocumentUploader
+
 end
