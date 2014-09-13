@@ -9,7 +9,7 @@
   <div><%= f.label :username %> <br />
     <%= f.text_field :username, autocomplete: "off" %></div>
 
-    <div><%= f.label :university %> <a class="italic-mother-fucker" href="/universities"> Yours not here?</a> <br />
+    <div><%= f.label :university %> - <a class="italic-mother-fucker" href="/universities"> Yours not here?</a> <br />
       <%= collection_select(:user, :university_id, University.all, :id, :name) %> </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
