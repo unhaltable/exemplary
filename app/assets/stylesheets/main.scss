@@ -112,6 +112,8 @@ input[type="submit"] {
       color: $teal;
     }
 
+    &:focus { outline: none; }
+
     &::after {
       display: none;
     }
@@ -191,7 +193,7 @@ input[type="submit"] {
   background: $teal image-url("hero.jpg") no-repeat center center / cover;
   color: #fff;
   display: table;
-  height: 250px;
+  height: 275px;
   text-align: center;
   width: 100%;
 }
@@ -207,13 +209,13 @@ input[type="submit"] {
   }
 
 #landing-about {
-  padding: 2em 1em;
+  padding: 3.5em 1em;
   text-align: center;
 }
 
   .landing-steps {
     display: inline-block;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     text-align: center;
     width: 25%;
     vertical-align: top;
