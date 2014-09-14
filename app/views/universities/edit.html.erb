@@ -1,6 +1,12 @@
-<h1>Editing university</h1>
+<div id="title-bar">
+  <div id="title-name">
+    <%= link_to '<', universities_path, { title: 'Back to all universities', id: 'title-back' } %>
+    <h1>Editing university</h1>
+  </div>
+</div>
+
+<div id="document-actions">
+  <%= link_to 'Show', @university %>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @university %> |
-<%= link_to 'Back', universities_path %>

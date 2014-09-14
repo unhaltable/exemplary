@@ -1,9 +1,8 @@
 <div id="title-bar">
   <div id="title-name">
+    <%= link_to '<', courses_path, { title: 'Back to courses', id: 'title-back' } %>
     <h1>New courses</h1>
   </div>
 </div>
-
-<%= link_to 'Back', courses_path %>
 
 <%= render 'form' %>

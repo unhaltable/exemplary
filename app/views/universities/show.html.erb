@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<div id="title-bar">
+  <div id="title-name">
+    <%= link_to '<', universities_path, { title: 'Back to document', id: 'title-back' } %>
+    <h1>University</h1>
+  </div>
+</div>
+
+<div id="document-actions">
+  <%= link_to 'Edit', edit_university_path(@university) %>
+</div>
+
 <p>
   <strong>Name:</strong>
   <%= @university.name %>
@@ -9,6 +20,3 @@
   <strong>Abbreviation:</strong>
   <%= @university.abbreviation %>
 </p>
-
-<%= link_to 'Edit', edit_university_path(@university) %> |
-<%= link_to 'Back', universities_path %>
