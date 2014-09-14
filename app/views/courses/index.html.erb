@@ -1,30 +1,45 @@
 <div id="title-bar">
   <div id="title-name">
-    <h1>Listing courses</h1>
+    <h1>All courses</h1>
   </div>
 </div>
 
-<div id="document-actions">
-  <%= link_to 'New Course', new_course_path %>
+<div id="courses">
+  <div id="documents-toolbar">
+    <input class="search" id="documents-search" placeholder="Search" />
+    <%= link_to 'New course', new_course_path, id: "documents-new" %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="sort asc" data-sort="name">Name</th>
+        <th class="sort" data-sort="code">Course Code</th>
+        <th colspan="2" id="table-head-actions">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="list">
+      <% @courses.each do |course| %>
+        <tr>
+          <td class="name"><%= link_to course.name, course %></td>
+          <td class="code"><%= course.coursecode %></td>
+          <td class="table-actions"><%= link_to 'Edit', edit_course_path(course) %></td>
+          <td class="table-actions"><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Course Code</th>
-      <th colspan="2" id="table-head-actions">Actions</th>
-    </tr>
-  </thead>
+<% content_for :foot do %>
+  <%= javascript_include_tag 'list.min' %>
 
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <td><%= link_to course.name, course %></td>
-        <td><%= course.coursecode %></td>
-        <td class="table-actions"><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td class="table-actions"><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <script>
+    var options = {
+      valueNames: [ 'name', 'code' ]
+    };
+
+    var docsList = new List('courses', options);
+  </script>
+<% end %>
