@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
+  post '/sections/:id/comment' => 'sections#comment'
+
 end

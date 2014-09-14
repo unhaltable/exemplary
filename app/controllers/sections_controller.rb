@@ -13,6 +13,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /sections/new
@@ -64,6 +65,12 @@ class SectionsController < ApplicationController
     end
   end
 
+  def comment
+    @section = Section.find(params[:id])
+    @section.comments << Comment.new(comment_params)
+    redirect_to section_url(@section)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_section
@@ -73,5 +80,9 @@ class SectionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
       params.require(:section).permit(:document_id, :content)
+    end
+
+    def comment_params
+      params.require(:comment).permit(:content)
     end
 end
