@@ -107,7 +107,7 @@ select {
   background: $teal;
   color: #fff;
   display: table;
-  padding: 1em 3em;
+  padding: 0.9em 3em;
   width: 100%;
 
   @include mobile-breakpoint() {
@@ -122,7 +122,8 @@ select {
     border: 1px solid #fff;
     color: #fff;
     display: table-cell;
-    padding: 0.75em 1em 0.75em 3em;
+    font-size: 1.25em;
+    padding: 0.6em 1em 0.6em 3em;
     text-align: center;
     width: 125px;
 
@@ -223,7 +224,7 @@ select {
     display: table-cell;
     font-size: 2em;
     font-weight: 400;
-    height: 325px;
+    height: 340px;
     text-shadow: 0 1px 5px #555;
     vertical-align: middle;
     width: 100%;
