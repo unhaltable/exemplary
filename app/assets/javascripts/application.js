@@ -15,19 +15,29 @@
 //= require turbolinks
 //= require jquery.Jcrop
 //= require angular
+//= require jquery.cloudinary
 
 (function () {
 
-  function SectionsController() {
+  $.cloudinary.config({ cloud_name: 'dpa6dr1vt' });
 
-  }
+  var SectionsController = ['$scope', function ($scope) {
+    $scope.updatePage = function (index, publicId) {
+      $('#full-page').html($.cloudinary.image(publicId, { page: index + 1, format: 'png' }));
+    };
+  }];
 
   function PageScroller() {
     return {
       link: function ($scope, $element, $attrs) {
-        $element.click(function () {
-          debugger;
+        var $thumbnails = $element.find('img');
+        $thumbnails.click(function () {
+          $scope.updatePage($thumbnails.index(this), this.getAttribute('alt'));
         });
+
+        if ($thumbnails.length) {
+          $scope.updatePage(0, $thumbnails.attr('alt'));
+        }
       }
     };
   }
