@@ -73,10 +73,10 @@ $(document).ready(function () {
   function toPixelDimensions(percentObj, img) {
     var tis = trueImageSize($(img));
 
-    var x = percentObj.x * tis.width,
-        y = percentObj.y * tis.height,
-        x2 = x + percentObj.width * tis.width,
-        y2 = y + percentObj.height * tis.height;
+    var x = Math.round(percentObj.x * tis.width),
+        y = Math.round(percentObj.y * tis.height),
+        x2 = Math.round(x + percentObj.width * tis.width),
+        y2 = Math.round(y + percentObj.height * tis.height);
 
     return {
       x: x,
