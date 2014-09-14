@@ -27,9 +27,13 @@
 <% @section.comments.order(score: :desc).each do |i| %>
   <div class="comment">
     <div class="comment-score">
-      <%= button_to '+', {:controller => "comments", :action => "vote",  :vote => {:bool => true, :id => i.id}}, :method=>:post  %>
+      <div class="upvote">
+        <%= button_to '+', {:controller => "comments", :action => "vote",  :vote => {:bool => true, :id => i.id}}, :method=>:post %>
+      </div>
       <span><%= i.comment_score %></span>
-      <%= button_to '-', {:controller => "comments", :action => "vote",  :vote => {:bool => false, :id => i.id}}, :method=>:post  %>
+      <div class="downvote">
+        <%= button_to '-', {:controller => "comments", :action => "vote",  :vote => {:bool => false, :id => i.id}}, :method=>:post %>
+      </div>
     </div>
 
     <div class="comment-text">

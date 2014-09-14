@@ -60,6 +60,10 @@
 #section-content {
   margin-bottom: 2em;
   margin-top: 1em;
+
+  img {
+    box-shadow: 0 0 5px #999;
+  }
 }
 
 
@@ -94,11 +98,27 @@
     }
   }
 
+    .upvote input,
+    .downvote input {
+      @include v(transition, (background-color 0.3s, color 0.3s));
+    }
+
+    .upvote input:hover {
+      background: #2bfd13;
+      color: #fff;
+    }
+
+    .downvote input:hover {
+      background: #ff2429;
+      color: #fff;
+    }
+
   .comment-text {
     padding-left: 1em;
   }
 
     .comment-time {
+      color: #333;
       font-size: 0.9em;
       font-style: italic;
     }
