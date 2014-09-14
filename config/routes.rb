@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   root 'application#index'
 
   post '/sections/:id/comment' => 'sections#comment'
+  post '/comment/vote/:id' => 'comments#vote'
 
 end

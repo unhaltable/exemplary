@@ -67,7 +67,9 @@ class SectionsController < ApplicationController
 
   def comment
     @section = Section.find(params[:id])
-    @section.comments << Comment.new(comment_params)
+    @comment = Comment.new(comment_params)
+    @section.comments << @comment
+    @comment.save
     redirect_to section_url(@section)
   end
 

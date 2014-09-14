@@ -8,12 +8,19 @@
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', document_sections_path(@section.document) %><br>
 
-<---Selections--> <br>
+<---Selections-->
+
 <% @section.comments.each do |i| %>
-<p>
-  Score: <%= i.score %> <br>
-    Text: <%= i.content %>
-<p>
+<div>
+  Score: <%= i.comment_score %> <br>
+  Text: <%= i.content %>
+</div>
+
+<div>
+<td><%= button_to '+', {:controller => "comments", :action => "vote",  :vote => {:bool => true, :id => i.id}}, :method=>:post  %></td>
+<td><%= button_to '-', {:controller => "comments", :action => "vote",  :vote => {:bool => false, :id => i.id}}, :method=>:post  %></td>
+</div>
+<br>
 <% end %>
 
 <%= form_tag section_path(@section) + '/comment' do %>
