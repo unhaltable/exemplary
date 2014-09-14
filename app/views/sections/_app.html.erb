@@ -1,4 +1,4 @@
-<div ng-controller="SectionsController as sc">
+<div id="page-section" ng-controller="SectionsController as sc">
   <div id='page-preview' page-scroller>
     <% 1.upto(@document.page_count) do |i| %>
       <%= cl_image_tag(@document.attachment.full_public_id, format: :png, page: i, crop: :fit, width: 200) %>
