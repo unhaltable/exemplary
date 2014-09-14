@@ -231,8 +231,12 @@ select {
 
 #landing-about {
   margin: 0 auto;
-  padding: 3.5em 4em;
+  padding: 3.5em 5em;
   text-align: center;
+
+  @include mobile-breakpoint() {
+    padding: 3.5em 1em;
+  }
 }
 
   .landing-steps {
@@ -277,7 +281,12 @@ select {
 
   #landing-text {
     display: table;
+    padding: 0 2em;
     width: 100%;
+
+    @include mobile-breakpoint() {
+      padding: 0 1em;
+    }
   }
 
     .landing-text-row {
