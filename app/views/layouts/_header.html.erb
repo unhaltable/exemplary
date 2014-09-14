@@ -5,7 +5,7 @@
       <%= link_to 'Documents', documents_path %> •
       <%= link_to 'Universities', universities_path %> •
       <%= link_to 'Courses', courses_path %> |
-      <%= link_to current_user.email, edit_user_registration_path, { title: 'Manage your account' } %> •
+      <%= link_to current_user.username, edit_user_registration_path, { title: 'Manage your account' } %> •
       <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
     <% else %>
       <%= link_to 'Sign in', new_user_session_path %> •
