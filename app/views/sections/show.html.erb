@@ -1,36 +1,46 @@
 <p id="notice"><%= notice %></p>
 
+<div id="title-bar">
+  <div id="title-name">
+    <%= link_to '<', document_sections_path(@section.document), { title: 'Back to document', id: 'title-back' } %>
+    <h1>Sections for <%= @section.document.name %></h1>
+  </div>
+</div>
+
+<div id="document-actions">
+  <%= link_to 'Edit', edit_section_path(@section) %>
+</div>
+
+<h2>Content</h2>
+
 <p>
-  <strong>Content:</strong>
   <%= @section.content %>
 </p>
 
-<%= link_to 'Edit', edit_section_path(@section) %> |
-<%= link_to 'Back', document_sections_path(@section.document) %><br>
-
-<---Selections-->
+<h2>Selections</h2>
 
 <% @section.comments.order(score: :desc).each do |i| %>
-<div>
-  Score: <%= i.comment_score %> <br>
-  Text: <%= i.content %>
-</div>
+  <div class="comment">
+    <div class="comment-score">
+      <%= button_to '+', {:controller => "comments", :action => "vote",  :vote => {:bool => true, :id => i.id}}, :method=>:post  %>
+      <span><%= i.comment_score %></span>
+      <%= button_to '-', {:controller => "comments", :action => "vote",  :vote => {:bool => false, :id => i.id}}, :method=>:post  %>
+    </div>
 
-<div>
-<td><%= button_to '+', {:controller => "comments", :action => "vote",  :vote => {:bool => true, :id => i.id}}, :method=>:post  %></td>
-<td><%= button_to '-', {:controller => "comments", :action => "vote",  :vote => {:bool => false, :id => i.id}}, :method=>:post  %></td>
-</div>
-<br>
-<% end %>
-
-<%= form_tag section_path(@section) + '/comment' do %>
-
-
-  <div class="field">
-    <%= text_field :comment, :content %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag %>
+    <div class="comment-text">
+      <%= i.content %>
+    </div>
   </div>
 <% end %>
+
+<div id="comment-field">
+  <%= form_tag section_path(@section) + '/comment' do %>
+    <div class="field">
+      <%= text_field :comment, :content, placeholder: 'Your comment' %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag 'Comment' %>
+    </div>
+  <% end %>
+</div>

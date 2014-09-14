@@ -56,3 +56,47 @@
     max-width: 100%;
   }
 }
+
+
+/* Comments */
+
+.comment {
+  background: #eee;
+  border: 1px solid $teal;
+  display: table;
+  margin-top: 1em;
+  padding: 1em;
+  width: 100%;
+}
+
+  .comment-score,
+  .comment-text {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .comment-score {
+    text-align: center;
+    width: 80px;
+
+    input[type="submit"] {
+      margin: 0;
+    }
+
+    span {
+      display: block;
+      padding: 0.5em 0;
+    }
+  }
+
+  .comment-text {
+
+  }
+
+#comment-field {
+  margin-top: 1em;
+
+  #comment_content {
+    width: 100%;
+  }
+}
