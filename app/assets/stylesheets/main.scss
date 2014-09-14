@@ -231,8 +231,7 @@ select {
 
 #landing-about {
   margin: 0 auto;
-  max-width: 950px;
-  padding: 3.5em 2em;
+  padding: 3.5em 4em;
   text-align: center;
 }
 
@@ -274,6 +273,33 @@ select {
     #step-3 {
       @include v(animation, shiftUp .5s .4s ease-out);
       background-image: image-url("step_vote.png");
+    }
+
+  #landing-text {
+    display: table;
+    width: 100%;
+  }
+
+    .landing-text-row {
+      display: table-row;
+      width: 100%;
+    }
+
+    .landing-text-cell {
+      display: table-cell;
+      padding: 1em;
+      text-align: left;
+      width: 50%;
+      vertical-align: top;
+
+      @include mobile-breakpoint() {
+        display: block;
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
     }
 
 
