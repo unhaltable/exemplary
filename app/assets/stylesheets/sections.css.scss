@@ -57,6 +57,10 @@
   }
 }
 
+#section-content {
+  margin-bottom: 2em;
+}
+
 
 /* Comments */
 
@@ -90,8 +94,13 @@
   }
 
   .comment-text {
-
+    padding-left: 1em;
   }
+
+    .comment-time {
+      font-size: 0.9em;
+      font-style: italic;
+    }
 
 #comment-field {
   margin-top: 1em;
