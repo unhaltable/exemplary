@@ -15,10 +15,17 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, autofocus: true %>
   </div>
+  
+  <div class="field">
+    <%= f.label :course_id %> - <a class="italic-mother-fucker" href="/courses"> Yours not here?</a><br />
+    <%= collection_select(:document, :course_id, current_user.university.courses, :id, :name) %>
+  </div>
+
   <div class="field">
     <%= f.label :attachment %><br>
     <%= f.file_field :attachment %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

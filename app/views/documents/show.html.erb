@@ -1,13 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+<div id="title-bar">
+  <div id="title-name">
+    <%= link_to '<', documents_path, { title: 'Back to my documents', id: 'title-back' } %>
+    <h1><%= @document.name %></h1>
+  </div>
+</div>
+
+<div id="document-actions">
+  <%= link_to 'Add section', new_document_section_path(@document) %>
+  <%= link_to 'Edit', edit_document_path(@document) %>
+</div>
+
 <p>
-  <strong>Name:</strong>
-  <%= @document.name %>
-</p>
-<p>
-  <strong>Attachment:</strong>
-  <%= link_to nil, @document.attachment.url(:image) %>
+  <strong>Download attachment:</strong>
+  <%= link_to nil, @document.attachment.url %>
 </p>
 
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%= link_to 'Back', documents_path %>
+<p>
+  <strong>Page count:</strong>
+  <%= @document.page_count %>
+</p>
+
+<p id="page-previews">
+  <p><strong>Preview:</strong></p>
+  <% 1.upto(@document.page_count) do |i| %>
+    <%= cl_image_tag(@document.attachment.full_public_id, format: :png, page: i, crop: :fit, width: 300) %>
+  <% end %>
+</p>

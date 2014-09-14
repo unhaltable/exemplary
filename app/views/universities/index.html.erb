@@ -1,0 +1,46 @@
+<div id="title-bar">
+  <div id="title-name">
+    <h1>All universities</h1>
+  </div>
+</div>
+
+<div id="universities">
+  <div id="documents-toolbar">
+    <input class="search" id="documents-search" placeholder="Search" />
+    <%= link_to 'New university', new_university_path, id: "documents-new" %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="sort asc" data-sort="name">Name</th>
+        <th class="sort" data-sort="abbrev">Abbreviation</th>
+        <th colspan="2" id="table-head-actions">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="list">
+      <% @universities.each do |university| %>
+        <tr>
+          <td class="name"><%= link_to university.name, university %></td>
+          <td class="abbrev"><%= university.abbreviation %></td>
+          <td class="table-actions"><%= link_to 'Edit', edit_university_path(university) %></td>
+          <td class="table-actions"><%= link_to 'Delete', university, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag 'list.min' %>
+
+  <script>
+    var options = {
+      valueNames: [ 'name', 'abbrev' ]
+    };
+
+    var docsList = new List('universities', options);
+  </script>
+<% end %>
+

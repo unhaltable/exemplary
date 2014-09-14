@@ -10,6 +10,16 @@
     </div>
 
     <div class="login-field">
+      <%= f.label :username %> <br />
+      <%= f.text_field :username, autocomplete: "off" %>
+    </div>
+
+    <div class="login-field">
+      <%= f.label :university %> - <a class="italic-mother-fucker" href="/universities"> Yours not here?</a><br />
+      <%= collection_select(:user, :university_id, University.all, :id, :name) %>
+    </div>
+
+    <div class="login-field">
       <%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>

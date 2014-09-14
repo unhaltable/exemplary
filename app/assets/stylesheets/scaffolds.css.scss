@@ -1,0 +1,43 @@
+@import 'core';
+
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  @include border-radius(5px);
+  background-color: #eb3305;
+  display: table;
+  padding: 2px;
+  width: 100%;
+}
+
+#error_explanation {
+  border: 2px solid #eb3305;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+
+  h2 {
+    @include border-radius-top(5px);
+    background-color: #eb3305;
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    color: #fff;
+  }
+
+  ul {
+    margin: 0.5em 0;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+    margin-left: 1.5em;
+  }
+}

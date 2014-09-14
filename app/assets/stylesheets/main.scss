@@ -31,9 +31,32 @@ body {
 
 
 a {
-  border-bottom: 1px solid $teal;
+  @include v(transition, all .15s ease-in-out);
   color: darken($teal, 5%);
+  padding-bottom: 0.2em;
+  position: relative;
   text-decoration: none;
+
+  &::after {
+    @include v(transform, translateY(5px));
+    bottom: 0;
+  }
+
+  &::after {
+    @include v(transition, (opacity .3s, transform .3s));
+    background: darken($teal, 5%);
+    content: '';
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &:hover::after {
+    @include v(transform, translateY(0));
+    opacity: 1;
+  }
 }
 
 h1,
@@ -46,8 +69,15 @@ p + p {
   margin-top: 1em;
 }
 
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
 input,
 textarea {
+  @include border-radius(5px);
   border: 1px solid $teal;
   font: 1em 'Questrial', sans-serif;
   padding: 0.5em 0.75em;
@@ -57,11 +87,23 @@ textarea {
 
 button,
 input[type="submit"] {
+  @include border-radius(5px);
   @include v(transition, (background-color 0.3s, color 0.3s));
   cursor: pointer;
   font: 1em 'Questrial', sans-serif;
   margin: 1em 0;
   padding: 0.5em 1em;
+}
+
+select {
+  @include border-radius(5px);
+  border: 1px solid $teal;
+  font: 1em 'Questrial', sans-serif;
+  padding: 0.5em 0.75em;
+
+  option {
+    padding: 0.5em 0.75em;
+  }
 }
 
 
@@ -81,16 +123,25 @@ input[type="submit"] {
 
   a#site-header-title {
     @include v(transition, (background-color 0.3s, color 0.3s));
+    background: transparent image-url("logo.png") no-repeat 0.8em 0.5em;
+    background-size: 30px 25px;
     border: 1px solid #fff;
     color: #fff;
     display: table-cell;
-    padding: 0.75em 1em;
+    padding: 0.75em 1em 0.75em 3em;
     text-align: center;
     width: 125px;
 
     &:hover {
       background-color: #fff;
+      background-image: image-url("logo_hover.png");
       color: $teal;
+    }
+
+    &:focus { outline: none; }
+
+    &::after {
+      display: none;
     }
   }
 
@@ -102,6 +153,10 @@ input[type="submit"] {
     a {
       color: #fff;
       margin: 0 1em;
+
+      &::after {
+        background: #fff;
+      }
     }
   }
 
@@ -200,18 +255,22 @@ input[type="submit"] {
   }
 }
 
-  .landing #content {
-    padding: 0;
+  .landing {
+    padding: 0 !important;
   }
+
+.field {
+  margin-bottom: 1em;
+}
 
 
 /* Landing page content */
 
 #landing-header {
-  background: $teal url("hero.jpg") no-repeat center center / cover;
+  background: $teal image-url("hero.jpg") no-repeat center center / cover;
   color: #fff;
   display: table;
-  height: 250px;
+  height: 275px;
   text-align: center;
   width: 100%;
 }
@@ -221,19 +280,25 @@ input[type="submit"] {
     display: table-cell;
     font-size: 2em;
     font-weight: 400;
-    height: 250px;
+    height: 325px;
+    text-shadow: 0 1px 5px #555;
     vertical-align: middle;
     width: 100%;
   }
 
 #landing-about {
-  padding: 2em 1em;
+  margin: 0 auto;
+  padding: 3.5em 5em;
   text-align: center;
+
+  @include mobile-breakpoint() {
+    padding: 3.5em 1em;
+  }
 }
 
   .landing-steps {
     display: inline-block;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     text-align: center;
     width: 25%;
     vertical-align: top;
@@ -258,17 +323,49 @@ input[type="submit"] {
 
     #step-1 {
       @include v(animation, shiftUp .5s .2s ease-out);
-      background-image: url("step_upload.png");
+      background-image: image-url("step_upload.png");
     }
 
     #step-2 {
       @include v(animation, shiftUp .5s .3s ease-out);
-      background-image: url("step_edit.png");
+      background-image: image-url("step_edit.png");
     }
 
     #step-3 {
       @include v(animation, shiftUp .5s .4s ease-out);
-      background-image: url("step_vote.png");
+      background-image: image-url("step_vote.png");
+    }
+
+  #landing-text {
+    display: table;
+    padding: 0 2em;
+    width: 100%;
+
+    @include mobile-breakpoint() {
+      padding: 0 1em;
+    }
+  }
+
+    .landing-text-row {
+      display: table-row;
+      width: 100%;
+    }
+
+    .landing-text-cell {
+      display: table-cell;
+      padding: 1em;
+      text-align: left;
+      width: 50%;
+      vertical-align: top;
+
+      @include mobile-breakpoint() {
+        display: block;
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
     }
 
 
@@ -291,6 +388,8 @@ input[type="submit"] {
     padding: 0.5em 0;
   }
 
+  select,
+  input[type="text"],
   input[type="email"],
   input[type="password"],
   input[type="submit"] {
@@ -322,7 +421,7 @@ input[type="submit"] {
   }
 
 
-/* Error messages */
+/* Flash messages */
 
 #error_explanation {
   @include border-radius(5px);
@@ -359,11 +458,127 @@ td {
   padding: 0.5em;
 }
 
-tr th:first-child,
-tr td:first-child {
-  width: 75%;
+.table-actions {
+  width: 75px;
+}
+
+#table-head-actions {
+  width: 150px;
+}
+
+#doc-head-name,
+.name {
+  width: 30%;
+}
+
+#doc-head-created,
+.created,
+#doc-head-updated,
+.updated {
+  width: 17%;
 }
 
 tbody tr:nth-child(odd) {
   background: lighten($grey, 5%);
 }
+
+#documents-toolbar {
+  display: table;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+  #documents-search,
+  #documents-new {
+    display: table-cell;
+    width: 50%;
+  }
+
+  #documents-search {
+    max-width: 300px;
+  }
+
+  #documents-new {
+    @include border-radius(5px);
+    @include v(transition, (background-color 0.3s, color 0.3s));
+    background-color: $teal;
+    border: 1px solid $teal;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-align: center;
+    width: 175px;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: $teal;
+    }
+  }
+
+
+/* Sorting (list.js) */
+
+.sort {
+  cursor: pointer;
+}
+
+.sort::after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+
+.sort.asc::after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid $teal;
+  content:"";
+  position: relative;
+  top:4px;
+  right:-5px;
+}
+
+.sort.desc::after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid $teal;
+  content:"";
+  position: relative;
+  top:-4px;
+  right:-5px;
+}
+
+
+/* Title bar */
+
+#title-bar {
+  border-bottom: 1px solid $teal;
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+
+  #title-back,
+  #title-name h1 {
+    display: table-cell;
+    margin-bottom: 0 !important;
+    vertical-align: middle;
+  }
+
+  #title-back {
+    font-size: 1.2em;
+    padding-right: 0.5em;
+  }

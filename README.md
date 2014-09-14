@@ -10,10 +10,6 @@ Document upload and annotation.
 
 TODO
 
-### Useful links
-
-- [Moxtra Developer](https://developer.moxtra.com/moxo/index.html)
-
 ### Development
 
 You need the following prerequisites:

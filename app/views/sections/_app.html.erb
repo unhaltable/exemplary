@@ -1,0 +1,13 @@
+<div id="page-section" ng-controller="SectionsController as sc">
+  <div id='page-preview' page-scroller>
+    <% 1.upto(@document.page_count) do |i| %>
+      <%= cl_image_tag(@document.attachment.full_public_id, format: :png, page: i, crop: :fit, width: 200) %>
+    <% end %>
+  </div>
+
+  <div id='full-page'></div>
+</div>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag 'sections' %>
+<% end %>

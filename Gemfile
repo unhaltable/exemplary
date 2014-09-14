@@ -47,6 +47,9 @@ gem 'jquery-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 
+# Use AngularJS
+gem 'angularjs-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -77,8 +80,8 @@ gem 'cloudinary'
 # Use devise for authentication
 gem 'devise'
 
-# Use CanCan for authorization
-gem 'cancan'
+# Use CanCanCan for authorization
+gem 'cancancan', '~> 1.9'
 
 # To deal with timezone errors in Windows. Read more: https://github.com/middleman/middleman/issues/1097
 gem 'tzinfo-data' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i

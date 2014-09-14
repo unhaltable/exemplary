@@ -1,0 +1,58 @@
+// Place all the styles related to the Sections controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'core';
+
+
+#page-section {
+  height: 550px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+#pages {
+  display: table;
+}
+
+#page-preview,
+#full-page {
+  display: table-cell;
+  height: 550px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  vertical-align: top;
+}
+
+#page-preview {
+  height: 550px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 230px;
+  z-index: 10000;
+
+  img {
+    border: 3px solid transparent;
+    margin-bottom: 0.75em;
+
+    &:hover,
+    &.active {
+      border-color: $teal;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#full-page {
+  padding-left: 240px;
+  padding-top: 3px;
+
+  img {
+    max-width: 100%;
+  }
+}
