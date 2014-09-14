@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913200105) do
+ActiveRecord::Schema.define(version: 20140914093834) do
 
   create_table "comments", force: true do |t|
     t.integer  "score"
@@ -118,5 +118,16 @@ ActiveRecord::Schema.define(version: 20140913200105) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["university_id"], name: "index_users_on_university_id"
+
+  create_table "votes", force: true do |t|
+    t.boolean  "vote"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "comment_id"
+  end
+
+  add_index "votes", ["comment_id"], name: "index_votes_on_comment_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end
