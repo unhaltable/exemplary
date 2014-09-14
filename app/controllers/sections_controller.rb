@@ -31,7 +31,7 @@ class SectionsController < ApplicationController
   # POST /sections
   # POST /sections.json
   def create
-    @section = Section.new(section_params)
+    @section = Section.new(section_params.merge!({ document: Document.find(params[:document_id]) }))
 
     respond_to do |format|
       if @section.save
@@ -84,7 +84,7 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:document_id, :content)
+      params.require(:section)
     end
 
     def comment_params

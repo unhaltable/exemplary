@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require annotorious.min
 //= require angular
 //= require jquery.cloudinary
@@ -51,7 +50,9 @@
       .controller('SectionsController', SectionsController)
       .directive('pageScroller', pageScroller);
 
+}());
 
+$(document).ready(function () {
   var rectangles = [];
 
   /**
@@ -89,4 +90,9 @@
     rectangles.push(toPixelDimensions(annotation.shapes[0].geometry, img.element));
   });
 
-}());
+  $('#save-section').click(function () {
+    $.post(location.pathname.replace('/new', '.json'), { section: { selections: rectangles }}).done(function (data) {
+      debugger;
+    });
+  });
+});

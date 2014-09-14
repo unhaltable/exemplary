@@ -4,6 +4,6 @@ class Section < ActiveRecord::Base
 	has_many :selections
 	has_many :comments
 
-  validates :document, presence: true
+  accepts_nested_attributes_for :selections
 
 end

@@ -26,7 +26,7 @@
         <% @documents.each do |document| %>
           <tr>
             <td class="name"><%= link_to document.name, document %></td>
-            <td class="course"><%= link_to document.course.coursecode, document.course %></td>
+            <td class="course"><%= link_to document.course.coursecode, document.course if document.course %></td>
             <td class="created"><%= document.created_at %></td>
             <td class="updated"><%= document.updated_at %></td>
             <td class="table-actions"><%= link_to 'Edit', edit_document_path(document) %></td>
