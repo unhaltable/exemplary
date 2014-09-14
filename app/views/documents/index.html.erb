@@ -18,7 +18,7 @@
           <th id="doc-head-course" class="sort" data-sort="course">Course</th>
           <th id="doc-head-created" class="sort" data-sort="created">Created</th>
           <th id="doc-head-updated" class="sort" data-sort="updated">Last updated</th>
-          <th colspan="2">Actions</th>
+          <th colspan="2" id="table-head-actions">Actions</th>
         </tr>
       </thead>
 
@@ -29,12 +29,16 @@
             <td class="course"><%= link_to document.course.coursecode, document.course %></td>
             <td class="created"><%= document.created_at %></td>
             <td class="updated"><%= document.updated_at %></td>
-            <td><%= link_to 'Edit', edit_document_path(document) %></td>
-            <td><%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class="table-actions"><%= link_to 'Edit', edit_document_path(document) %></td>
+            <td class="table-actions"><%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+  </div>
+<% else %>
+  <div id="document-actions">
+    <%= link_to '+ New document', new_document_path %>
   </div>
 <% end %>
 

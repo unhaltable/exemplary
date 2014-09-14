@@ -89,6 +89,17 @@ input[type="submit"] {
   padding: 0.5em 1em;
 }
 
+select {
+  @include border-radius(5px);
+  border: 1px solid $teal;
+  font: 1em 'Questrial', sans-serif;
+  padding: 0.5em 0.75em;
+
+  option {
+    padding: 0.5em 0.75em;
+  }
+}
+
 
 /* Header */
 
@@ -293,17 +304,6 @@ input[type="submit"] {
     width: 100%;
   }
 
-  select {
-    @include border-radius(5px);
-    border: 1px solid $teal;
-    font: 1em 'Questrial', sans-serif;
-    padding: 0.5em 0.75em;
-
-    option {
-      padding: 0.5em 0.75em;
-    }
-  }
-
   input[type="submit"] {
     background-color: $teal;
     border: 1px solid #fff;
@@ -366,12 +366,12 @@ td {
   padding: 0.5em;
 }
 
-.actions {
-  width: 10%;
+.table-actions {
+  width: 75px;
 }
 
-#doc-head-actions {
-  width: 20%;
+#table-head-actions {
+  width: 150px;
 }
 
 #doc-head-name,

@@ -15,7 +15,7 @@
       <tr>
         <th class="sort asc" data-sort="name">Name</th>
         <th class="sort" data-sort="abbrev">Abbreviation</th>
-        <th colspan="2" id="doc-head-actions">Actions</th>
+        <th colspan="2" id="table-head-actions">Actions</th>
       </tr>
     </thead>
 
@@ -24,8 +24,8 @@
         <tr>
           <td class="name"><%= link_to university.name, university %></td>
           <td class="abbrev"><%= university.abbreviation %></td>
-          <td class="actions"><%= link_to 'Edit', edit_university_path(university) %></td>
-          <td class="actions"><%= link_to 'Delete', university, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="table-actions"><%= link_to 'Edit', edit_university_path(university) %></td>
+          <td class="table-actions"><%= link_to 'Delete', university, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
