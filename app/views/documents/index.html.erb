@@ -15,6 +15,7 @@
       <thead>
         <tr>
           <th id="doc-head-name" class="sort asc" data-sort="name">Name</th>
+          <th id="doc-head-course" class="sort" data-sort="course">Course</th>
           <th id="doc-head-created" class="sort" data-sort="created">Created</th>
           <th id="doc-head-updated" class="sort" data-sort="updated">Last updated</th>
           <th colspan="2">Actions</th>
@@ -25,6 +26,7 @@
         <% @documents.each do |document| %>
           <tr>
             <td class="name"><%= link_to document.name, document %></td>
+            <td class="course"><%= link_to document.course.coursecode, document.course %></td>
             <td class="created"><%= document.created_at %></td>
             <td class="updated"><%= document.updated_at %></td>
             <td><%= link_to 'Edit', edit_document_path(document) %></td>
