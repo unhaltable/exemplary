@@ -13,7 +13,10 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
-    @comment = Comment.new
+    @section.comments.each do |c|
+      c.score = c.comment_score
+      c.save
+    end
   end
 
   # GET /sections/new

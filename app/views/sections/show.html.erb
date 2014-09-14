@@ -10,7 +10,7 @@
 
 <---Selections-->
 
-<% @section.comments.each do |i| %>
+<% @section.comments.order(score: :desc).each do |i| %>
 <div>
   Score: <%= i.comment_score %> <br>
   Text: <%= i.content %>
