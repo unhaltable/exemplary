@@ -3,7 +3,7 @@
 <div id="title-bar">
   <div id="title-name">
     <%= link_to '<', document_sections_path(@section.document), { title: 'Back to document', id: 'title-back' } %>
-    <h1>Sections for <%= @section.document.name %></h1>
+    <h1>Selection for <%= @section.document.name %></h1>
   </div>
 </div>
 
@@ -21,7 +21,7 @@
   <% end %>
 </p>
 
-<h2>Selections</h2>
+<h2>Comments</h2>
 
 <% @section.comments.order(score: :desc).each do |i| %>
   <div class="comment">
