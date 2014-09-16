@@ -76,6 +76,26 @@ class SectionsController < ApplicationController
     redirect_to section_url(@section)
   end
 
+  def vote
+    par = vote_params
+    @comment = Comment.find(par[:id])
+    @section = @comment.section
+
+    #for vote in @comment.votes do
+    #  if vote.user.id == current_user.id
+    #    redirect_to section_url(@comment.section)
+    #    return
+    #  end
+    #end
+
+    @vote = Vote.new(comment_id: par[:id], user_id: current_user.id, vote: par[:bool])
+    @comment.votes << @vote
+    current_user.votes << @vote
+    @vote.save
+    #redirect_to section_url(@comment.section)
+    render 'js_comments'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_section
@@ -89,5 +109,9 @@ class SectionsController < ApplicationController
 
     def comment_params
       params.require(:comment).permit(:content)
+    end
+
+    def vote_params
+      params.require(:vote).permit(:bool, :id)
     end
 end
