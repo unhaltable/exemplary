@@ -93,7 +93,7 @@ class SectionsController < ApplicationController
     current_user.votes << @vote
     @vote.save
     #redirect_to section_url(@comment.section)
-    render 'js_comments'
+    render 'js_comment'
   end
 
   private
