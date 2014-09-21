@@ -5,7 +5,6 @@
 	<span><%= comment.comment_score %></span>
 	<div class="downvote">
 		<%= button_to '-', {:controller => "sections", :action => "vote",  :vote => {:bool => false, :id => comment.id}}, remote: true %>
-		</div>
 	</div>
 	<div class="comment-text">
 		<p><%= comment.content %></p>
