@@ -6,8 +6,8 @@
 	<div class="downvote">
 		<%= button_to '-', {:controller => "sections", :action => "vote",  :vote => {:bool => false, :id => comment.id}}, remote: true %>
 	</div>
+</div>
 	<div class="comment-text">
 		<p><%= comment.content %></p>
 		<p class="comment-time">Posted at <%= comment.created_at %></p>
 	</div>
-</div>
