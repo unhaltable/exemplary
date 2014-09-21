@@ -23,8 +23,11 @@
 </p>
 
 <h2>Comments</h2>
-<div id="comment_list">
-  <%= render 'comments' %>
+<div id="comment-list">
+  <% @section.comments.order(score: :desc).each do |i| %>
+    <div id="comment-<%= i.id %>" class="comment">
+    <%= render partial: 'comment', locals: {comment: i} %>
+  <% end %>
 </div>
 
 <div id="comment-field">

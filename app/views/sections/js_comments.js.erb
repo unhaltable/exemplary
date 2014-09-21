@@ -1,1 +1,1 @@
-$('#comment_list').html("<%= escape_javascript(render('comments')) %>")
+$('#comment-<%= @comment.id %>').html("<%= escape_javascript(render(partial: 'comment', locals: {comment: @comment})) %>")
