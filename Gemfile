@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Ruby version
-ruby '2.1.2'
+ruby '2.1.3'
 
 # Ruby on Rails!
 gem 'rails', '4.1.5'
@@ -76,9 +76,6 @@ gem 'devise'
 
 # Use CanCanCan for authorization
 gem 'cancancan', '~> 1.9'
-
-# To deal with timezone errors in Windows. Read more: https://github.com/middleman/middleman/issues/1097
-gem 'tzinfo-data' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 
 # To render markdown
 gem 'redcarpet'
