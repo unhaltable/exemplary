@@ -186,7 +186,6 @@ select {
 /* Main content */
 
 #content {
-  padding: 2em 3em;
   width: 100%;
 
   @include mobile-breakpoint() {
