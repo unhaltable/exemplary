@@ -23,25 +23,13 @@
 </p>
 
 <h2>Comments</h2>
-
-<% @section.comments.order(score: :desc).each do |i| %>
-  <div class="comment">
-    <div class="comment-score">
-      <div class="upvote">
-        <%= button_to '+', {:controller => "comments", :action => "vote",  :vote => {:bool => true, :id => i.id}}, :method=>:post %>
-      </div>
-      <span><%= i.comment_score %></span>
-      <div class="downvote">
-        <%= button_to '-', {:controller => "comments", :action => "vote",  :vote => {:bool => false, :id => i.id}}, :method=>:post %>
-      </div>
+<div id="comment-list">
+  <% @section.comments.order(score: :desc).each do |i| %>
+    <div id="comment-<%= i.id %>" class="comment">
+      <%= render partial: 'comment', locals: {comment: i} %>
     </div>
-
-    <div class="comment-text">
-      <p><%= i.content %></p>
-      <p class="comment-time">Posted at <%= i.created_at %></p>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <div id="comment-field">
   <%= form_tag section_path(@section) + '/comment' do %>
