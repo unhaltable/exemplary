@@ -1,20 +1,13 @@
-## Environment normalisation:
+# Ignore bundler config.
 /.bundle
-/vendor/bundle
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
-
-# if using bower-rails ignore default bower_components path bower.json files
-/vendor/assets/bower_components
-*.bowerrc
-bower.json
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log/*
+!/log/.keep
 /tmp
-/public/uploads/tmp
-/db/*.sqlite3
+
+# autoenv
+/.env
 
 # Ignore RubyMine/IntelliJ files
 .idea
@@ -24,4 +17,3 @@ public/assets/
 
 # Windows junk
 Thumbs.db
-
