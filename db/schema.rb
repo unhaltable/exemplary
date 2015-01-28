@@ -13,7 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20140914093834) do
 
-  create_table "comments", force: true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
     t.integer  "score"
     t.text     "content"
     t.datetime "created_at"
@@ -23,11 +26,11 @@ ActiveRecord::Schema.define(version: 20140914093834) do
     t.integer  "comment_id"
   end
 
-  add_index "comments", ["comment_id"], name: "index_comments_on_comment_id"
-  add_index "comments", ["section_id"], name: "index_comments_on_section_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["comment_id"], name: "index_comments_on_comment_id", using: :btree
+  add_index "comments", ["section_id"], name: "index_comments_on_section_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "courses", force: true do |t|
+  create_table "courses", force: :cascade do |t|
     t.string   "coursecode"
     t.string   "name"
     t.datetime "created_at"
@@ -36,10 +39,10 @@ ActiveRecord::Schema.define(version: 20140914093834) do
     t.integer  "user_id"
   end
 
-  add_index "courses", ["university_id"], name: "index_courses_on_university_id"
-  add_index "courses", ["user_id"], name: "index_courses_on_user_id"
+  add_index "courses", ["university_id"], name: "index_courses_on_university_id", using: :btree
+  add_index "courses", ["user_id"], name: "index_courses_on_user_id", using: :btree
 
-  create_table "documents", force: true do |t|
+  create_table "documents", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -48,38 +51,38 @@ ActiveRecord::Schema.define(version: 20140914093834) do
     t.string   "attachment"
   end
 
-  add_index "documents", ["course_id"], name: "index_documents_on_course_id"
-  add_index "documents", ["user_id"], name: "index_documents_on_user_id"
+  add_index "documents", ["course_id"], name: "index_documents_on_course_id", using: :btree
+  add_index "documents", ["user_id"], name: "index_documents_on_user_id", using: :btree
 
-  create_table "notes", force: true do |t|
+  create_table "notes", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "course_id"
     t.integer  "user_id"
   end
 
-  add_index "notes", ["course_id"], name: "index_notes_on_course_id"
-  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+  add_index "notes", ["course_id"], name: "index_notes_on_course_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
-  create_table "roles", force: true do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "roles_users", id: false, force: true do |t|
+  create_table "roles_users", id: false, force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "role_id", null: false
   end
 
-  create_table "sections", force: true do |t|
+  create_table "sections", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "document_id"
   end
 
-  add_index "sections", ["document_id"], name: "index_sections_on_document_id"
+  add_index "sections", ["document_id"], name: "index_sections_on_document_id", using: :btree
 
-  create_table "selections", force: true do |t|
+  create_table "selections", force: :cascade do |t|
     t.integer  "x"
     t.integer  "y"
     t.integer  "x2"
@@ -89,16 +92,16 @@ ActiveRecord::Schema.define(version: 20140914093834) do
     t.integer  "section_id"
   end
 
-  add_index "selections", ["section_id"], name: "index_selections_on_section_id"
+  add_index "selections", ["section_id"], name: "index_selections_on_section_id", using: :btree
 
-  create_table "universities", force: true do |t|
+  create_table "universities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "abbreviation"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
@@ -115,11 +118,11 @@ ActiveRecord::Schema.define(version: 20140914093834) do
     t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["university_id"], name: "index_users_on_university_id"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["university_id"], name: "index_users_on_university_id", using: :btree
 
-  create_table "votes", force: true do |t|
+  create_table "votes", force: :cascade do |t|
     t.boolean  "vote"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -127,7 +130,7 @@ ActiveRecord::Schema.define(version: 20140914093834) do
     t.integer  "comment_id"
   end
 
-  add_index "votes", ["comment_id"], name: "index_votes_on_comment_id"
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
+  add_index "votes", ["comment_id"], name: "index_votes_on_comment_id", using: :btree
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
 end
