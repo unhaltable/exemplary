@@ -50,7 +50,7 @@ gem 'jquery-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.1'
 
-# Use AngularJS
+# Use AngularJS  TODO: stop using angularjs
 gem 'angularjs-rails'
 
 # Use Uglifier as compressor for JavaScript assets

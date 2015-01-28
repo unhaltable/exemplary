@@ -15,6 +15,7 @@
 //= require annotorious.min
 //= require angular
 //= require jquery.cloudinary
+//= require react
 
 (function () {
 
