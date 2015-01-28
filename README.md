@@ -14,7 +14,7 @@ TODO
 
 You need the following prerequisites:
 
-- Ruby 2.1.2 (I recommend [rbenv](https://github.com/sstephenson/rbenv) for managing ruby versions)
+- Ruby 2.2.0 (I recommend [rbenv](https://github.com/sstephenson/rbenv) for managing ruby versions)
 
 - Bundler:
 
