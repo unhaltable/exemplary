@@ -7,9 +7,6 @@ ruby '2.2.0'
 gem 'rails', '4.2.0'
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-
   # Open emails in the browser instead of sending
   gem 'letter_opener'
 end
@@ -23,9 +20,6 @@ group :test do
 end
 
 group :production do
-  # Use postgresql as the production database for Active Record
-  gem 'pg'
-
   # Direct logs to stdout and enable development/production parity
   gem 'rails_12factor'
 
@@ -38,11 +32,14 @@ group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
+# PostgreSQL
+gem 'pg'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.1'
 
 # Use AngularJS
 gem 'angularjs-rails'
@@ -58,9 +55,6 @@ gem 'formtastic'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-
-# Allows manually setting request timeout
-gem 'rack-timeout'
 
 # Use puma as the app server
 # gem 'puma'
