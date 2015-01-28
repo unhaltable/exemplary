@@ -12,22 +12,37 @@ TODO
 
 ### Development
 
-You need the following prerequisites:
+Dependencies:
 
-- Ruby 2.2.0 (I recommend [rbenv](https://github.com/sstephenson/rbenv) for managing ruby versions)
+- Ruby 2.2.0 ([rbenv][] recommended)
+- Bundler: `gem install bundler`
 
-- Bundler:
+1. Install the bundle:
 
-    gem install bundler
-
-The rest of the dependencies can be installed by running:
-
-    cd exemplary/
+    ```shell
+    cd mylivenotes/
     bundle install
+    ```
 
-Start a local test server by running:
+2. Set up PostgreSQL:
 
-    rails server
+    - On OS X, [Postgres.app](http://postgresapp.com/) is recommended.
+    - For other platforms, see [PostgreSQL downloads](http://www.postgresql.org/download/)
+
+    - Set `$DATABASE_URL` in your environment:
+
+        ```shell
+        export DATABASE_URL="postgres://localhost/mylivenotes_development"
+        ```
+
+        (Tip: use [autoenv](https://github.com/kennethreitz/autoenv) or
+        [an IDE](https://www.jetbrains.com/ruby/) to set this automatically)
+
+3. Start the development server:
+
+    ```shell
+    bin/rails server
+    ```
 
 ### Deploying to production
 
@@ -35,4 +50,6 @@ Add the [Heroku](https://www.heroku.com/) remote:
 
     git remote add heroku git@heroku.com:exemplary.git
 
-The site is live at <http://exemplary.io>
+The site is live at <https://exemplary.io>
+
+[rbenv]: https://github.com/sstephenson/rbenv
